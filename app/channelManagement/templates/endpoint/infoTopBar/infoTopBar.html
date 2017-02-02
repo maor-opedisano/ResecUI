@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="app/channelManagement/templates/endpoint/infoTopbar/style.css" />
+<div layout="row" flex="100" layout-align="space-between center" id="CMInfoTopBar"  layout-padding md-whiteframe="4">
+    <div flex="20" class="infoTopBarDiv" layout-align="center center">
+        <h3>{{ctrl.channel_data.Name}}</h3>
+    </div>
+    <div flex="20" class="infoTopBarDiv" layout-align="center center" layout="column">
+        <h3>{{ctrl.channelDashboard.AgentsUseTheChannel}}</h3>
+        <small class="lighGray">Agents using this channel</small>
+    </div>
+    <div flex="15" class="infoTopBarDiv" layout-align="center center" layout="column">
+        <h3>{{ctrl.channelDashboard.OpenCases}}</h3>
+        <small class="lighGray">Open Cases</small>
+    </div>
+    <div flex="25" layout="column" class="infoTopBarDiv" layout-align="center center">
+        <h3>{{ctrl.channelDashboard.BlockedFiles}}</h3>
+        <small class="lighGray">Blocked Files</small>
+    </div>
+    <div flex="25" layout="column" class="infoTopBarDiv" layout-align="center center">
+        <h3>{{ctrl.channelDashboard.SanitizedFiles}}</h3>
+        <small class="lighGray">Sanitized Files</small>
+    </div>
+</div>

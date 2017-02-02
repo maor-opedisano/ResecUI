@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="app/dashboard/templates/sidenavCases/style.css" />
+
+
+<md-content layout="row" layout-align="end start">
+    <md-content layout="column" id="casesTriggerWrapper" flex>
+        <div id = "casesTrigger" layout="row">
+            <md-icon md-svg-src="icons/simpleCasesLogo.svg"></md-icon>
+            <p>{{ctrl.totalCases}}</p>
+        </div>
+        <div id="casesTriggerFooter" flex></div>
+    </md-content>
+    <md-sidenav md-component-id="casesSidenav" md-is-locked-open="false">
+        <md-content layout="row" layout-align="space-between start">
+            My Cases {{ctrl.totalCases}}
+        </md-content>
+        <md-list>
+            <md-list-item ng-repeat="case in ctrl.casesInfo"></md-list-item>
+        </md-list>
+    </md-sidenav>
+</md-content>

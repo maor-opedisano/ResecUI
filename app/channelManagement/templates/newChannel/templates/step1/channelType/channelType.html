@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="app/channelManagement/templates/newChannel/templates/step1/channelType/style.css" />
+
+<div id="wrapper" layout-margin class="md-whiteframe-8dp">
+    <div id="ncTypeUp" layout="row" layout-padding layout-align="start center">
+        <md-icon md-svg-src="icons/ncChannelType.svg" id="ncTypeIcon"></md-icon>
+        <md-content class="md-title" id="ncChannelTypeCaption">Choose Channel Type</md-content>
+    </div>
+    <div id="ncTypePicker" layout="row" layout-align="space-around center" layout-padding>
+        <div layout="column" layout-align="center center" ng-repeat="x in ctrl.channelIcons" class="ncTypesItems" flex="ctrl.ncTypeWidth" nc-type-selectable required>
+            <md-icon md-svg-src="{{x.icon}}" class="ncTypesIcons"></md-icon>
+            <md-content class="ncTypeTitle" id="NewChannelType">{{x.name}}</md-content>
+        </div>
+
+    </div>
+    
+</div>

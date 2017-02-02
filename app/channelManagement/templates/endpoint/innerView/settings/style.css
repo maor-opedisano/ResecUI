@@ -1,0 +1,14 @@
+.settings{
+    background-color: white;
+    padding-top: 0px !important;
+}
+.edit-mode-on{
+    background-color: #C2185B !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+.edit-mode-off{
+    background-color: #1A237E !important;
+    color: white !important;
+    font-weight: 700 !important;
+}

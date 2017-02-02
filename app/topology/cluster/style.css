@@ -1,0 +1,75 @@
+ .cluster-table {
+     background-color: white;
+ }
+ 
+ .cluster-row {
+     border-bottom: solid 1px #EEE;
+ }
+ 
+ .cluster-row:last-child {
+     border-bottom: solid 0px white;
+ }
+ 
+ .online {
+     color: #4CAF50;
+     font-weight: 700 !important;
+ }
+ 
+ .offline {
+     color: #D32F2F;
+     font-weight: 700 !important;
+ }
+ 
+ .graph-holder {
+     border-radius: 5px;
+ }
+ 
+ #running-jobs-graph {
+     height: 10
+ }
+ 
+ #chart {
+     height: 70%;
+     width: 100%;
+     padding-right: 0px !important;
+     margin-right: 0px !important;
+ }
+ 
+ #time-picker {
+     border-radius: 3px !important;
+     background-color: white !important;
+ }
+ 
+ #page-title {
+     text-align: center;
+ }
+ 
+ .legend {
+     height: 2em;
+     border-radius: 4px;
+ }
+ 
+ .legend>div {
+     height: 2em;
+ }
+ 
+ .low {
+     background-color: #E15F64 !important;
+     text-align: center !important;
+     color: white !important;
+     font-weight: 650 !important;
+ }
+ 
+ .high {
+     background-color: #2D90EA !important;
+     text-align: center !important;
+     color: white !important;
+     font-weight: 650 !important;
+ }
+ 
+ .many {
+     background-color: #BD9C55 !important;
+     text-align: center !important;
+     color: white !important;
+     font-weight: 650 !important;
+ }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>1480020012_31_Task</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1480020012_31_Task" fill="#FFFFFF">
+            <g id="Layer_1">
+                <polygon id="Shape" points="325.719 127.625 229.094 231.25 184.812 183.781 144 227.562 230.781 319.906 367.938 172.875"></polygon>
+                <path d="M480,0 L32,0 C14.312,0 0,14.312 0,32 L0,480 C0,497.688 14.312,512 32,512 L480,512 C497.688,512 512,497.688 512,480 L512,384 L512,128 L512,32 C512,14.312 497.688,0 480,0 L480,0 Z M448,352 L352,352 L352,448 L160,448 L160,352 L64,352 L64,160 L64,64 L160,64 L352,64 L448,64 L448,352 L448,352 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

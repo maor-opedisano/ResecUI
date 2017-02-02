@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="app/reports/jobs/style.css" />
+<center>
+    <div ng-cloak flex-gt-md="95" md-whiteframe="7" class="sanitization-table-holder">
+        <md-table-container class="sanitization-table-container">
+            <table md-table md-progress="get_data" class="sanitization-table" ng-model="selected">
+                <thead md-head class="santization-head" md-order="jobs_query.SortField">
+                    <tr md-row>
+                        <th md-column>
+                            <md-button class="md-icon-button" open-jobs-filter>
+                                <md-icon>filter_list</md-icon>
+                            </md-button>
+                        </th>
+                        <th md-column md-order-by="Time"><span>Start Time</span></th>
+                        <th md-column md-order-by="Duration"><span>Duration</span></th>
+                        <th md-column md-order-by="User"><span>User</span></th>
+                        <th md-column md-order-by="Computer"><span>Computer</span></th>
+                        <th md-column md-order-by="Status"><span>Status</span></th>
+                        <th md-column md-order-by="Passed"><span>Passed (Processed??)</span></th>
+                        <th md-column md-order-by="Failed"><span>Failed (blocked??)</span></th>
+                        <th md-column md-order-by="Total"><span>Total</span></th>
+                        <th md-column md-order-by="Actions"><span>Actions</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="x in data.List | filter: filter.search | orderBy:  jobs_query.SortField | limitTo:  jobs_query.PageSize"
+                        md-auto-select="options.autoSelect">
+                        <td md-cell></td>
+                        <td md-cell>{{x.StartTime | date:"MM/dd/yyyy ':' h:mma"}}</td>
+                        <td md-cell>{{x.Duration}}</td>
+                        <td md-cell>{{x.User}}</td>
+                        <td md-cell>{{x.Computer}}</td>
+                        <td md-cell>{{x.Status}}</td>
+                        <td md-cell>{{x.Processed}}</td>
+                        <td md-cell>{{x.Blocked}}</td>
+                        <td md-cell>{{x.TotalFiles}}</td>
+                        <td md-cell>{{x.Actions}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="jobs_query.PageSize" md-limit-options="limitOptions" md-page="jobs_query.PageIndex" md-total="{{total_length}}"
+            md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks"></md-table-pagination>
+</center>

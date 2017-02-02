@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1690px" height="111px" viewBox="0 0 1690 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#55ADC6" offset="0%"></stop>
+            <stop stop-color="#60A0D8" offset="54.6739128%"></stop>
+            <stop stop-color="#441D9E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(2.000000, 0.000000)">
+            <g id="Group-3" transform="translate(0.000000, 31.000000)">
+                <g id="Group-2" transform="translate(0.000000, 9.000000)">
+                    <g id="line">
+                        <polyline id="Line" stroke="#441D9E" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="8,15,8,15" points="0.5 19.5 118.559983 19.5 192.5 19.5"></polyline>
+                        <polyline id="Line" stroke="#55ADC6" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="8,15,8,15" points="1493 18 1611.05998 18 1685 18"></polyline>
+                        <path d="M292.5,19.5 L484.5,19.5" id="Line" stroke="#441D9E" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="1,1,1"></path>
+                        <polyline id="Line" stroke="#441D9E" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="1,1,1" points="553 19 580.837479 19 745 19"></polyline>
+                        <path d="M888,17 L1080,17" id="Line" stroke="url(#linearGradient-1)" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="1,1,1"></path>
+                        <path d="M1158,17 L1350,17" id="Line" stroke="#5EADC3" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" stroke-dasharray="1,1,1" fill="#D8D8D8"></path>
+                        <g id="ic_input_black_36px" transform="translate(220.111111, 0.000000)" fill="#441D9E">
+                            <g id="Group">
+                                <path d="M44.4444444,0.0222222222 L4.44444444,0.0222222222 C2,0.0222222222 0,2.02222222 0,4.46666667 L0,13.3333333 L4.44444444,13.3333333 L4.44444444,4.42222222 L44.4444444,4.42222222 L44.4444444,35.6 L4.44444444,35.6 L4.44444444,26.6666667 L0,26.6666667 L0,35.5777778 C0,38.0222222 2,39.9777778 4.44444444,39.9777778 L44.4444444,39.9777778 C46.8888889,39.9777778 48.8888889,38.0222222 48.8888889,35.5777778 L48.8888889,4.46666667 C48.8888889,2 46.8888889,0.0222222222 44.4444444,0.0222222222 L44.4444444,0.0222222222 Z M22.2222222,28.8888889 L31.1111111,20 L22.2222222,11.1111111 L22.2222222,17.7777778 L0,17.7777778 L0,22.2222222 L22.2222222,22.2222222 L22.2222222,28.8888889 L22.2222222,28.8888889 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="OUTPUT" transform="translate(1104.000000, 0.000000)" fill="#55ACC7">
+                    <g id="Group">
+                        <polygon id="Shape" points="0 42.8744939 18.5425101 24.291498 0 5.70850202 5.70850202 0 30 24.291498 5.70850202 48.582996"></polygon>
+                    </g>
+                </g>
+                <g id="files" transform="translate(500.000000, 4.000000)" fill="#441D9E">
+                    <g id="Group">
+                        <path d="M4.5,0 C2.025,0 0.0225,2.025 0.0225,4.5 L0,40.5 C0,42.975 2.0025,45 4.4775,45 L31.5,45 C33.975,45 36,42.975 36,40.5 L36,13.5 L22.5,0 L4.5,0 L4.5,0 Z M20.25,15.75 L20.25,3.375 L32.625,15.75 L20.25,15.75 L20.25,15.75 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="ok" transform="translate(1385.000000, 20.000000)" fill="#55ADC6">
+                <g id="Group">
+                    <path d="M77.3828886,7.01826813 L71.2280351,0.863414634 L43.5530201,28.5384296 L49.7078736,34.6932831 L77.3828886,7.01826813 L77.3828886,7.01826813 Z M95.8911006,0.863414634 L49.7078736,47.0466416 L31.4615704,28.8439897 L25.3067169,34.9988432 L49.7078736,59.4 L102.089606,7.01826813 L95.8911006,0.863414634 L95.8911006,0.863414634 Z M0.6,34.9988432 L25.0011568,59.4 L31.1560103,53.2451465 L6.79850494,28.8439897 L0.6,34.9988432 L0.6,34.9988432 Z" id="Shape"></path>
+                </g>
+            </g>
+            <g id="ic_pan_tool_black_24px" transform="translate(762.000000, 0.000000)" fill="#441D9E">
+                <g id="Clipped">
+                    <path d="M101.545632,25.4375 L101.545632,92.5 C101.545632,102.675 93.2373533,111 83.0827901,111 L49.388103,111 C44.4031356,111 39.6951108,109.01125 36.2333279,105.49625 L0,68.58875 C0,68.58875 5.81579531,62.9 6.00042373,62.8075 C7.01588005,61.92875 8.2621219,61.46625 9.64683507,61.46625 C10.6622914,61.46625 11.5854335,61.74375 12.4162614,62.20625 C12.6008898,62.2525 32.3099739,73.58375 32.3099739,73.58375 L32.3099739,18.5 C32.3099739,14.66125 35.4025,11.5625 39.2335398,11.5625 C43.0645795,11.5625 46.1571056,14.66125 46.1571056,18.5 L46.1571056,50.875 L50.7728162,50.875 L50.7728162,6.9375 C50.7728162,3.09875 53.8653422,0 57.696382,0 C61.5274218,0 64.6199478,3.09875 64.6199478,6.9375 L64.6199478,50.875 L69.2356584,50.875 L69.2356584,11.5625 C69.2356584,7.72375 72.3281845,4.625 76.1592243,4.625 C79.990264,4.625 83.0827901,7.72375 83.0827901,11.5625 L83.0827901,50.875 L87.6985007,50.875 L87.6985007,25.4375 C87.6985007,21.59875 90.7910267,18.5 94.6220665,18.5 C98.4531063,18.5 101.545632,21.59875 101.545632,25.4375 L101.545632,25.4375 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="app/topology/cluster/style.css" />
+
+<h2 id="page-title">Cluster</h2>
+
+<div layout="row" layout-margin flex="100" layout-align="center center">
+    <h3>Time Frame</h3>
+    <md-input-container>
+        <md-select ng-model='ctrl.selectedTime' placeholder="5 Minutes Ago" id="time-picker">
+            <md-option selected><small>5 Minutes</small></md-option>
+            <md-option ><small>30 Minutes</small></md-option>
+            <md-option><small>1 Hour</small></md-option>
+            <md-option><small>90 Minutes</small></md-option>
+            <md-option><small>2 Hours</small></md-option>
+        </md-select>
+    </md-input-container>
+</div>
+<div flex="30" class="legend" md-whiteframe="4" layout="row">
+        <div class="high" flex="33"> High Complexity</div>
+        <div class="many" flex="33"> Many Complexity</div>
+        <div class="low" flex="33"> Low Complexity</div>
+</div>
+
+<table class="table table-responsive table-stripped cluster-table" ng-cloak md-whiteframe="6">
+    <thead>
+        <th>Server Name</th>
+        <th>Status</th>
+        <th>Current Running Jobs</th>
+        <th>Jobs Type</th>
+        <th>CPU Load</th>
+    </thead>
+    <tbody>
+        <tr class="cluster-row" ng-repeat="cluster in ctrl.ClusterData">
+            <td> {{cluster.Label}} </td>
+            <td ng-class="{'online': cluster.ClusterStatus.toLowerCase() === 'connected', 'offline': cluster.ClusterStatus.toLowerCase() === 'disconnected'}">
+                {{cluster.ClusterStatus}}
+            </td>
+            <td>
+                <div id="chart" >
+                    <canvas id="line" class="chart chart-line" chart-data="cluster.currentJobs" chart-labels="ctrl.DynamicLabels" chart-series="['High Complexity', 'Many Complexity', 'Low Complexity']">
+                    </canvas>
+                </div>
+            </td>
+            <td>{{cluster.JobType}}</td>
+            <td>
+                <div id="chart">
+                    <canvas id="line" class="chart chart-line" chart-data="cluster.cpu" chart-labels="ctrl.DynamicLabels" chart-series="['serie A']">
+                    </canvas>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

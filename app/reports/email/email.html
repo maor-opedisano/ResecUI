@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="app/reports/email/style.css" />
+<center>
+    <div ng-cloak flex-gt-md="95" md-whiteframe="7" class="sanitization-table-holder">
+        <md-table-container class="sanitization-table-container">
+            <table md-table class="sanitization-table" ng-model="selected">
+                <thead md-head class="santization-head" md-order="email_query.order">
+                    <tr md-row>
+                        <th md-column md-order-by="StartTime"><span>Start Time</span></th>
+                        <th md-column md-order-by="From"><span>From</span></th>
+                        <th md-column md-order-by="To"><span>To</span></th>
+                        <th md-column md-order-by="Subject"><span>Subject</span></th>
+                        <th md-column md-order-by="Size"><span>Size</span></th>
+                        <th md-column md-order-by="Processing Server"><span>Processing Server</span></th>
+                        <th md-column md-order-by="Status"><span>Status</span></th>
+                        <th md-column md-order-by="Outcome"><span>Outcome</span></th>
+                        <th md-column md-order-by="Actions"><span>Actions (Action Log??)</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="x in data.List | filter: filter.search | orderBy:  email_query.order | limitTo:  email_query.PageSize" md-auto-select="options.autoSelect">
+                        <td md-cell>{{x['StartTime'] | date:"MM/dd/yyyy ':' h:mma"}}</td>
+                        <td md-cell>{{x['Mail From Address']}}</td>
+                        <td md-cell>{{x['Mail Subject']}}</td>
+                        <td md-cell>{{x['Size']}}</td>
+                        <td md-cell>{{x['Status']}}</td>
+                        <td md-cell>{{x['Processing Server']}}</td>
+                        <td md-cell>{{x['Status']}}</td>
+                        <td md-cell>{{x['Outcome']}}</td>
+                        <td md-cell>{{x['Actions Log']}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="email_query.PageSize" md-limit-options="limitOptions" md-page="email_query.PageIndex" md-total="{{total_length}}"
+            md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks"></md-table-pagination>
+</center>

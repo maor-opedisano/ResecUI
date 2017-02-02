@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="app/reports/sanitization/filter/style.css" />
+
+<div class="md-dialog-container">
+  <md-dialog layout-padding flex="50">
+    <md-toolbar class="sanitization-filter-toolbar" layout="row" layout-align="center center">
+      <h3 id="filter-title">Filters</h3>
+    </md-toolbar>
+    <md-list>
+      <md-list-item ng-repeat="x in sanitization_fields" layout="row" layout-align="space-between center">
+        {{x.name}}
+        <md-input-container>
+          <md-select ng-model="f_q.status" placeholder="{{x.values[1]}}">
+            <md-option ng-repeat="status in x.values" ng-value="status">
+              {{status}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-list-item>
+      <!-- computer List -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Computer
+        <md-input-container>
+          <md-select ng-model="f_q.computer" placeholder="Pick a computer from the list">
+            <md-option ng-repeat="computer in computer_list">
+              {{computer.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-list-item>
+      <md-list-item layout="row" layout-align="space-between center">
+        Channels
+        <md-input-container>
+          <md-select ng-model="f_q.channelType" placeholder="Pick a Channel Type from the list">
+            <md-option ng-repeat="channel in channel_types">
+              {{channel}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-list-item>
+      <!-- file name -->
+      <md-list-item layout="row" layout-align="space-between center">
+        File Name
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.fileName" type="name" aria-label="chant">
+        </md-input-container>
+      </md-list-item>
+      <!-- job id -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Jobs ID
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.jobId" type="name" aria-label="chant">
+        </md-input-container>
+      </md-list-item>
+      <!-- Duration -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Duration
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.Duration" type="number" aria-label="chant">
+        </md-input-container>
+      </md-list-item>
+      <!-- processing server -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Processing Server
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.ProcessingServer" aria-label="chant" type="name">
+        </md-input-container>
+      </md-list-item>
+      <!-- portal server -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Portal Server
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.PortalServer" type="name" aria-label="chant">
+        </md-input-container>
+      </md-list-item>
+      <!-- Policy Id -->
+      <md-list-item layout="row" layout-align="space-between center">
+        Policy ID
+        <md-input-container>
+          <input class="filter-input" ng-model="f_q.PolicyId" type="number" aria-label="chant">
+        </md-input-container>
+      </md-list-item>
+      <div layout="row" layout-align="space-between center">
+        <md-button class="cancel-sanitization-filters" flex="50" ng-click="cancel_filter()">CANCEL</md-button>
+        <md-button class="close-sanitization-filters" flex="50" ng-click="send_filter_query()">FILTER</md-button>
+      </div>
+  </md-dialog>
+
+</div>

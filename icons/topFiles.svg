@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="366px" height="500px" viewBox="0 0 366 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <g id="1476362434_file" fill="#311B92">
+                <path d="M365.247,177.129 L188.315,0.196 L173.123,0.196 L167.49,0.196 L0.888,0.196 L0.888,500 L365.328,500 L365.328,177.16 L365.247,177.129 L365.247,177.129 Z M188.315,29.645 L325.468,166.797 L188.315,166.797 L188.315,29.645 L188.315,29.645 Z M21.713,479.175 L21.713,21.021 L167.49,21.021 L167.49,187.622 L344.504,187.622 L344.504,479.174 L21.713,479.174 L21.713,479.175 Z" id="Shape"></path>
+            </g>
+            <g id="1476362419_ChirstmaxShop_top" transform="translate(84.000000, 221.000000)" stroke-width="18" stroke="#311B92">
+                <g id="Shop_1_">
+                    <g id="top">
+                        <path d="M99,221 L99,1" id="Shape" fill="#FFFFFF"></path>
+                        <path d="M0,96 L93,3 C96,5.55111512e-16 102,5.55111512e-16 105,3 L198,96" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

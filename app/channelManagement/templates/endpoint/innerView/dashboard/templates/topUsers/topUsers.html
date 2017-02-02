@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="app/channelManagement/templates/endpoint/innerView/dashboard/templates/topUsers/style.css" />
+
+<md-content id="endpointDashboardTopUsers" md-whiteframe="6">
+
+    <div layout="row" md-whiteframe="4" layout-padding layout-align="none center">
+        <md-icon class="material-icons md-primary md-36" id="EndpointTopFilesIcon">groups</md-icon>
+        <h4>Top Users</h4>
+    </div>
+
+    <md-virtual-repeat-container id="vertical-container" class="matchMyHeight">
+        <md-list>
+            <div md-virtual-repeat="user in ctrl.channelDashboard.TopUsersList">
+                <md-list-item class="repeated-item" flex layout="row" layout-align="space-between center" layout-margin>
+                    <p flex="65"> {{user.Name}}</p>
+                    <div>
+                    <p class="customChips">{{user.Team}}</p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+            </div>
+        </md-list>
+    </md-virtual-repeat-container>
+</md-content>

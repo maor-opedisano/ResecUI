@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="app/dashboard/templates/inputsByChannel/style.css" />
+<div layout="column" layout-margin md-whiteframe="6" id="dTotalInputs">
+    <div layout="row" layout-align="center center" id="dTotalInputsTitle">TOTAL INPUTS</div>
+    <div ng-repeat="i in ctrl.totalInputs" layout="row" layout-align="space-between center" layout-padding id="dTotalInputWrapper">
+        <div layout="column" layout-align="center start">
+            {{i.total}}
+            <small>Total Waiting Files</small>
+        </div>
+        <div layout="column" layout-align="center start">
+            {{i.time}}
+            <small>Current Waiting Time</small>
+        </div>
+    </div>
+</div>
+<md-virtual-repeat-container id="dashInputList" layout-margin md-whiteframe="6">
+    <md-list>
+        <div ng-repeat="i in ctrl.input">
+            <md-list-item layout="row" layout-padding class="dInputDataContainer">
+                <div layout="column" layout-align="center center" flex="40">
+                    <md-icon md-svg-src="{{i.iconURL}}" class="md-42"></md-icon>
+                    <md-content class="md-caption">{{i.name}}</md-content>
+                </div>
+                <div layout="column" flex layout-align="center start" id="dProgressWrapper" class="superPartialDividerLeft">
+                    <div class="progress fullWidth increaseMBottom">
+                        <div layout="row">
+                            <div class="progress-bar progress-bar-purple" role="progressbar" style="width:{{i.lowComplexity}}%">
+                                {{i.lowComplexity}}%
+                                <md-tooltip md-direction="top">
+                                    Low Complexity
+                                </md-tooltip>
+                            </div>
+                            <div class="progress-bar progress-bar-blue" role="progressbar" style="width:{{i.manyFiles}}%">
+                                {{i.manyFiles}}%
+                                <md-tooltip md-direction="top">
+                                    Many Files
+                                </md-tooltip>
+                            </div>
+                            <div class="progress-bar progress-bar-yellow" role="progressbar" style="width:{{i.highComplexity}}%">
+                                {{i.highComplexity}}%
+                                <md-tooltip md-direction="top">
+                                    High Complexity
+                                </md-tooltip>
+                            </div>
+                        </div>
+                    </div>
+                    <md-content class="md-caption">{{i.total}} Files</md-content>
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+        </div>
+    </md-list>
+</md-virtual-repeat-container>

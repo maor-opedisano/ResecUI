@@ -1,0 +1,67 @@
+.create_channel_sidenav_item {
+    background-color: #039BE5;
+}
+
+.create_channel_sidenav_item:hover {
+    background-color: #0091EA;
+    border-left: solid 0.5em #EC407A;
+}
+
+.channel_type_icon {
+    margin-left: 0px !important;
+}
+
+.channel_type_icon svg g {
+    fill: white !important;
+}
+
+.remove-icon {
+    color: #E91E63 !important;
+}
+
+#channelSidebarSearchIcon {
+    color: #2196F3;
+}
+
+#reorder_channels_icon {
+    color: #2196F3;
+}
+
+#reorder_channels_icon:hover {
+    color: #FF4081;
+}
+
+#reorder_channels_button {
+    margin-right: 1em;
+}
+
+.editOn {
+    color: #FF4081 !important;
+}
+
+[ng-drop].drag-enter {
+    border: solid 3px #2196F3;
+}
+.rename-icon{
+    color: #2196F3 !important;
+}
+.edit-name{
+    border-bottom: solid 2px #E040FB !important;
+    padding-bottom: 2px !important;
+}
+.icon-edit-name-active{
+    color: #FF4081 !important;
+}
+.channelSidenavItems:hover {
+    background-color: #38359C;
+    color: white;
+    border-left: solid 0.5em #706BE2;
+}
+.sidenavItemHoverState {
+    background-color: #38359C;
+    color: white;
+    border-left: solid 0.5em #706BE2;
+}
+.white-icon{
+    color: white !important;
+}

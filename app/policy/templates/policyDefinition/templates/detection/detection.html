@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="app/policy/templates/policyDefinition/templates/detection/style.css" />
+<link rel="stylesheet" href="app/policy/templates/policyDefinition/templates/settings/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
+<md-button md-ink-ripple="white" md-whiteframe="6" class="editDetection" aria-label="edit preferences" edit-preferences>EDIT</md-button>
+<div layout='row' layout-align="space-between">
+    <p>Policy Facets</p>
+    <json-formatter json="ctrl.PolicyFacets"></json-formatter>
+    <p>Detection Facets straight from server </p>
+    <json-formatter json="ctrl.DetectionFacets"></json-formatter>
+</div>
+<div id="policySettingsContainer" ng-class="{'not-editable': !ctrl.editMode}">
+    <md-list layout-margin ng-repeat="(Key, value) in ctrl.DetectionFacets">
+        <div class='whiteBk policy_settings_lists' md-whiteframe="4" flex>
+            <md-toolbar layout='row' layout-align='start center' class="policy_settings_key">
+                <h4 class='card-title' layout-margin>{{Key}}</h4>
+            </md-toolbar>
+            <md-divider></md-divider>
+            <md-content layout='row' ng-repeat="(propkey, propValue) in value.Properties">
+                <md-list-item flex layout-align='space-between center' ng-switch="propValue.Type" nginit=" ctrl.PolicyFacets[Key].Values[propkey] = ctrl.PolicyFacets[Key].Values[propkey] == null ? propValue.DefaultValue :  ctrl.PolicyFacets[Key].Values[propkey]">
+                    <div ng-switch-when="FacetPropertyType_Bool" layout="row" layout-align="space-between center" flex>
+                        <p>{{propValue.DisplayName}}</p>
+                        <md-switch class="custom-switch" ng-model="ctrl.PolicyFacets[Key].Values[propkey]" aria-label="file Sign switch">
+                        </md-switch>
+                    </div>
+                    <div style="width: 100%" ng-switch-when="FacetPropertyType_Bool, FacetPropertyType_MultiChoice">
+                        <md-content layout="row" ng-init="propValue.isHidden = true" layout-align="start center">
+                            <md-button ng-click="propValue.isHidden =! propValue.isHidden" class="md-icon-button no-padding-margin">
+                                <md-icon ng-show="propValue.isHidden">keyboard_arrow_right</md-icon>
+                                <md-icon ng-show="!propValue.isHidden">keyboard_arrow_down</md-icon>
+                            </md-button>
+                            <p style="margin-bottom: 0px">{{propValue.DisplayName}}</p>
+                        </md-content>
+                        <div ng-repeat="x in propValue.AvailableValues" ng-hide="propValue.isHidden" layout="row" layout-align="space-between center">
+                            {{x}}
+                            <md-checkbox ng-model="ctrl.PolicyFacets[Key].Values[propkey][x]"></md-checkbox>
+                        </div>
+                    </div>
+                    <div ng-switch-when="FacetPropertyType_Int" name="file" layout="row" flex layout-align="space-between center">
+                        <p>{{propValue.DisplayName}}</p>
+                        <input class="custom-input" placeholder="int" ng-model="ctrl.PolicyFacets[Key].Values[propkey] " string-to-number type="number" />
+                    </div>
+                    <div ng-switch-when=" FacetPropertyType_String" layout="row" flex layout-align="space-between center">
+                        <p>{{propValue.DisplayName}}</p>
+                        <input class="custom-input" placeholder="text" ng-model="ctrl.PolicyFacets[Key].Values[propkey]" type="text" />
+                    </div>
+                    <div ng-switch-when="FacetPropertyType_MultiLineString" layout="row" flex layout-align="space-between center">
+                        <p>{{propValue.DisplayName}}</p>
+                        <textarea ng-model="ctrl.PolicyFacets[Key].Values[propkey]"></textarea>
+                    </div>
+                    <div ng-switch-when="FacetPropertyType_SingleChoice" layout="row" flex layout-align="space-between center">
+                        <p>{{propValue.DisplayName}}</p>
+                        <select ng-init="ctrl.PolicyFacets[Key].Values[propkey] = $index[0]" class="custom-select" ng-options="x as x for x in propValue.AvailableValues track by $index" ng-model="ctrl.PolicyFacets[Key].Values[propkey]"></select>
+                    </div>
+                    <div ng-switch-when=" FacetPropertyType_Password" layout="row" flex layout-align="space-between center">
+                        <p>{{propValue.DisplayName}}</p>
+                        <input class="custom-input" aria-label="key" placeholder="" ng-model="ctrl.PolicyFacets[Key].Values[propkey]" type="password" />
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-content>
+        </div>
+    </md-list>
+</div>

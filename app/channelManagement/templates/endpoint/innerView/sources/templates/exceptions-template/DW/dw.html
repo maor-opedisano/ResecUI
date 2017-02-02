@@ -1,0 +1,51 @@
+<link href="app/channelManagement/templates/endpoint/innerView/sources/templates/exceptions-template/DW/style.css" rel="stylesheet"
+/>
+<json-formatter json="ctrl.DW"></json-formatter>
+<json-formatter json="ctrl.channel_data"></json-formatter>
+<md-button edit-dw-sources aria-label="edit dr">
+    <span ng-if="ctrl.DWSourcesAreEditable">SAVE</span>
+    <span ng-if="!ctrl.DWSourcesAreEditable">EDIT</span>
+</md-button>
+<table class="table table-responsive" id="DirWatcherTable" md-whiteframe="4" ng-class="{'noteEditable': !ctrl.DWSourcesAreEditable}">
+    <thead>
+        <th>
+            <md-button aria-label="add-row" class="md-icon-button" ng-click="ctrl.CreateNewDirWatcherSourcesEntry()">
+                <md-icon>add</md-icon>
+            </md-button>
+        </th>
+        <th>Input Folder</th>
+        <th>Output Folder</th>
+        <th>Rejected Folder</th>
+        <th>Temporary Folder</th>
+        <th>Include Folder Mask</th>
+        <th>Exclude Folder Mask</th>
+
+    </thead>
+    <tbody>
+        <tr ng-repeat="DW in ctrl.DW.Sources track by $index">
+            <td>
+                <md-button ng-if="ctrl.DWSourcesAreEditable" aria-label="add-row" class="md-icon-button" ng-click="ctrl.RemoveDirWatcherSourcesEntry($index)">
+                    <md-icon>remove</md-icon>
+                </md-button>
+            </td>
+            <td>
+                <input class="input-source" placeholder="Input Folder" ng-model="DW.InputFolder" />
+            </td>
+             <td>
+                <input class="input-source" placeholder="Output Folder" ng-model="DW.OutputFolder" />
+            </td>
+            <td>
+                <input class="input-source" placeholder="Rejected Folder" ng-model="DW.RejectedFolder" />
+            </td>
+            <td>
+                <input class="input-source" placeholder="Temporary Folder" ng-model="DW.TemporaryFolder" />
+            </td>
+            <td>
+                <input class="input-source" placeholder="Include Folder Mask" ng-model="DW.IncludeFolderMask" />
+            </td>
+            <td>
+                <input class="input-source" placeholder="Exclude Folder Mask" ng-model="DW.ExcludeFolderMask" />
+            </td>
+        </tr>
+    </tbody>
+</table>

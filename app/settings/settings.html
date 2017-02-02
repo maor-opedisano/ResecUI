@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="app/settings/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
+
+<div class="md-padding" ng-cloak > 
+    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselec md-dynamic-height md-whiteframe="4">
+        <md-tab ng-repeat="tab in ctrl.allProps" label="{{tab.TabName}}" class="setting_tabs">
+            <md-tab-body class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+                <md-list class='whiteBk' ng-repeat="prop in tab.Properties">
+                    <md-list-item layout='row' layout-align='space-between center' layout-padding>
+                        {{::prop.DisplayName}}
+                        <md-icon class='material-icons detail-toolip' style='margin-right: 0.3em'>
+                            info
+                            <md-tooltip>
+                                {{::prop.Comment}} : {{::prop.InputType}}
+                            </md-tooltip>
+                        </md-icon>
+                        <div ng-switch="prop.InputType" flex="30">
+                            <div ng-switch-when="number" flex='100' layout="row">
+                                <input flex="70" type="number" class="form-control" ng-model="prop.Value" ng-readonly="prop.IsVolatile" placeholder="{{prop.DisplayName }}: {{prop.InputType}}"
+                                    formatter="prop.Value" >
+                                <select ng-if="prop.IsComplex" flex="30" >
+                                    <option>KB</option>
+                                    <option>MB</option>
+                                    <option>GB</option>
+                                </select>
+                            </div>
+                            <input string-to-date ng-switch-default flex='100' type="{{ctrl.sortType(prop.InputType) }}" class="form-control" ng-model="prop.Value"
+                                ng-readonly="prop.IsVolatile" placeholder="{{prop.Value}}" />
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                </md-list>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+    <md-button ng-click="ctrl.SaveSettings()" id="save_settings_changes" md-whiteframe="6">Save Changes</md-button>
+</div>
+<json-formatter json="ctrl.allProps"></json-formatter>

@@ -1,0 +1,26 @@
+#CMEndpointInnerNav{
+    margin-top: 2em;
+}
+
+#CMEndPointInnerNavUL{
+    background-color: #101250;
+}
+#CMEndPointInnerNavUL > li > a {
+    color: white;
+}
+#CMEndPointInnerNavUL > li >a:hover{
+    background-color: #39379D;
+    color: white
+}
+#CMEndPointInnerNavUL > li >a:focus{
+    background-color: #39379D;
+    color: white;
+}
+#CMEndPointInnerNavUL > li{
+    border-right: solid 1px white;
+}
+
+.SelectedTab{
+    background-color: #39379D;
+    color: white;
+}

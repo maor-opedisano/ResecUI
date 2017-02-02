@@ -1,0 +1,38 @@
+<div id="top-file-type-header" layout="row" layout-margin md-whiteframe="4">
+    <div layout="row" layout-align="start center" flex="40">
+        <md-icon md-svg-src="IMG/icons/top-file.svg" class="top-file-icon md-72">insert_drive_file</md-icon>
+        <h3>Top File Type</h3>
+    </div>
+    <div flex="60" layout-align="start center" layout="row">
+        <md-select ng-model="ctrl.topFileSorter" placeholder="Sort By..." class="md-no-underline">
+          <md-option value="passed files">Passed Files</md-option>
+          <md-option value="top blocked">Blocked</md-option>
+          <md-option value="to cdred">CDR</md-option>
+        </md-select>
+
+    </div>
+</div>
+<md-virtual-repeat-container id="top-files-policy">
+    <div md-virtual-repeat="f in ctrl.dashboardData.TopTenFileTypes" class="policy-top-file-type" flex layout="row" layout-margin>
+        <div class="top-file-icon-holder" layout="column" layout-align="center center" layout-margin flex="10">
+            <md-icon class="material-icons darkPurple">insert_drive_file</md-icon>
+            <p class="noMarginBottom noMarginTop extensionName" to-uppercase>{{f.FileExtension}}</p>
+        </div>
+        <div class="top-file-icon-holder" layout="row" layout-align="start center" layout-margin flex="20">
+            <md-icon class="material-icons lightGreen">check_circle</md-icon>
+            <p class="noMarginBottom noMarginTop">{{f.TotalPassed}} Passed Files</p>
+        </div>
+        <div class="top-file-icon-holder" layout="row" layout-align="start center" layout-margin flex="20">
+            <md-icon class="material-icons lightGreen">check_circle</md-icon>
+            <p class="noMarginBottom noMarginTop">{{f.TotalModified}} Sanitized Files</p>
+        </div>
+        <div class="top-file-icon-holder" layout="row" layout-align="start center" layout-margin flex="20">
+            <md-icon class="material-icons danger">block</md-icon>
+            <p class="noMarginBottom noMarginTop">{{f.TotalBlocked}} Blocked Files</p>
+        </div>
+        <div class="top-file-icon-holder" layout="row" layout-align="start center" layout-margin flex="20">
+            <md-icon class="material-icons green">code</md-icon>
+            <p class="noMarginBottom noMarginTop">{{f.TotalProcessed}} Total Files</p>
+        </div>
+    </div>
+</md-virtual-repeat-container>

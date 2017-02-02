@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="app/policy/templates/policyDefinition/templates/cdr/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
+<p>ctrl.PolicyFacets['Policy CDR Settings']</p>
+<json-formatter json="ctrl.PolicyFacets['Policy CDR Settings']"></json-formatter>
+<p>ctrl.cdr</p>
+<json-formatter json="ctrl.cdr"></json-formatter>
+
+<div ng-repeat="(L0Key, L0Value) in ctrl.cdr['Policy CDR Settings'].Properties" class="cards" md-whiteframe="5">
+    <div layout="row" layout-align="space-between center" class="card-title" ng-init="L0Value.showValues = false">
+        <h4 layout-padding><strong> {{L0Value.DisplayName}}<strong></h4>
+        <md-button class="md-icon-button" toggle-cdr-edition binded-value="L0Value.showValues"
+         value="ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key]"
+         policy-id="ctrl.policyId" key="L0Key" global="ctrl.PolicyFacets['Policy CDR Settings'].Values" post-facets-from-cdr ng-click="ctrl.SaveFacetsInCDR(L0Value.showValues)">
+            <md-icon class="white">edit</md-icon>
+        </md-button>
+    </div>
+    <!--
+          <div layout="row" layout-margin flex="100" layout-wrap>
+            <span  class="action-chips" ng-repeat="(actionKey, actionValue) in ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key] track by $index"md-whiteframe="2" ng-if="actionKey !==''">
+            
+                <span ng-if="!L0Value.showValues" style="color: #333">{{actionValue.Category }} &nbsp : &nbsp </span> {{actionValue.ActionName}}
+                <md-tooltip md-direction="top" ng-if="actionValue.Description.length > 0">{{actionValue.Description}}</md-tooltip>
+                <md-icon  class="white" ng-if="L0Value.showValues" ng-click="ctrl.DeleteAction(actionKey, L0Key)">remove</md-icon> 
+             
+            </span>
+        </div>  
+        -->
+        <div layout="row" layout-margin flex="100"  layout-wrap>
+            <span class="action-chips"  ng-class="{'HIGH':L0Value.AvailableValues[actionKey][3]=== 'High',
+                 'MEDIUM': L0Value.AvailableValues[actionKey][3] === 'Medium', 'LOW':L0Value.AvailableValues[actionKey][3] === 'Low'  }"  md-whiteframe="2" 
+                 ng-repeat="(actionKey, actionValue) in ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key] track by $index" ng-if="actionValue">
+            {{L0Value.AvailableValues[actionKey][1]}}&nbsp : &nbsp{{L0Value.AvailableValues[actionKey][2]}} 
+                <md-tooltip md-direction="top" ng-if="L0Value.AvailableValues[actionKey][4].length >0">{{L0Value.AvailableValues[actionKey][4]}}</md-tooltip>
+                <md-icon  class="white" ng-if="L0Value.showValues" ng-click="ctrl.DeleteAction(actionKey, L0Key)">remove</md-icon> 
+             
+            </span>
+        </div>  
+
+<div class="actions animated fadeInDown" layout="row" layout-margin layout-wrap ng-if="L0Value.showValues">
+                <span class="action-chips" ng-repeat="(L1Key, L1Value) in L0Value.AvailableValues" ng-class="{'HIGH': L1Value[3]=== 'High',
+                 'MEDIUM': L1Value[3] === 'Medium', 'LOW': L1Value[3] === 'Low' }" ng-hide="L1Value[2].includes('None') " >
+                    {{L1Value[1]}}:{{L1Value[2]}}
+
+                    <md-tooltip ng-if="L1Value[4].length > 0" md-direction="top">{{L1Value[4]}}</md-tooltip>
+                    <md-icon class="white" ng-click="ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key][L1Key] =true"
+                     ng-if="ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key][L1Key] != true||ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key][L1Key] ==false">add</md-icon>
+                </span>
+            </div>
+    <!--    <div ng-repeat="(L1Key, L1Value) in L0Value.AvailableValues" layout="column" layout-padding  ng-if="L0Value.showValues">
+            <div class="action-pannel" layout="colum" layout-align="start center">
+                <h5 class="action-category">{{L1Value[1]}}</h5>
+            </div>
+            <div class="actions animated fadeInDown" layout="row" layout-margin layout-wrap>
+                <span class="action-chips" ng-repeat="action in L1Value" ng-class="{'HIGH': action.RiskLevel === 'High',
+                 'MEDIUM': action.RiskLevel === 'Medium', 'LOW': action.RiskLevel === 'Low' }" ng-hide="action.ActionName.includes('None') " >
+                    {{action.ActionName}}
+                    <md-tooltip ng-if="action.Description.length > 0" md-direction="top">{{action.Description}}</md-tooltip>
+                    <md-icon class="white" ng-click="ctrl.PolicyFacets['Policy CDR Settings'].Values[L0Key][L1Value[1]] =action.ActionName"
+                     ng-if="ctrl.PolicyFacets['Policy CDR Settings'].Values[L1Value[1]] != action.ActionName">add</md-icon>
+                </span>
+            </div>
+        </div>-->
+    </div>

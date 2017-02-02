@@ -1,0 +1,22 @@
+<json-formatter json="ctrl.scanners">
+</json-formatter>
+<center>
+    <div flex-gt-md="95" md-whiteframe="7" class="sanitization-table-holder" ng-init="ctrl.init()">
+        <md-table-container>
+            <table md-table>
+                <thead md-head class="santization-head">
+                    <tr md-row>
+                        <th md-column ng-repeat="(x,y) in ctrl.scanners[0]"><span>{{x}}</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="L0Value in ctrl.scanners">
+                        <td md-cell ng-repeat="L1value in L0Value">{{L1value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+</center>
+<md-button ng-click="ctrl.collect_updates()">collect updates</md-button>
+<md-button>collect updates</md-button>

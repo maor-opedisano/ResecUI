@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="app/reports/jobs/filter/style.css" />
+<md-dialog flex="50">
+    <md-toolbar class="jobs-filter-toolbar" layout-padding layout="row" layout-align="space-between center">
+        Jobs Filter
+        <md-button class="md-icon-button" close-jobs-filters>
+            <md-icon>cancel</md-icon>
+        </md-button>
+    </md-toolbar>
+    <div>
+        <md-input-container class="md-block" flex>
+            <md-select ng-model="jobs_query.JobStatus" placeholder="Job Status">
+                <md-option ng-repeat="status in sanitization_stauts" value="{{status}}">
+                    {{status}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-datepicker ng-model="jobs_query.StartTime" md-placeholder="Pick a Start Time" class="md-block" flex layout-padding></md-datepicker>
+        <md-datepicker ng-model="jobs_query.EndTime" md-placeholder="Pick an End Time" class="md-block" flex layout-padding></md-datepicker>
+        <md-input-container class="md-block" flex layout-padding>
+            <md-select ng-model="jobs_query.Computer" placeholder="computer">
+                <md-option ng-repeat="computer in computer_list" value="{{computer.name}}">
+                    {{computer.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex layout-padding>
+            <md-select ng-model="jobs_query.Users" placeholder="Users">
+                <md-option ng-repeat="user in users" value="{{user}}">
+                    {{user.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex layout-padding>
+            <md-select ng-model="jobs_query.AgentType" placeholder="Agent Type">
+                <md-option ng-repeat="agent in active_agents" value="{{agent}}">
+                    {{agent}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container flex class="md-block" layout-padding>
+            <input class="filter-input" ng-model="jobs_query.JobId" type="number" placeholder="Job ID">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="space-between center">
+        <md-button close-jobs-filters md-whiteframe="4" class="cancel-jobs-filters" flex>CANCEL</md-button>
+        <md-button filter-jobs md-whiteframe="4" class="filter-jobs-button" flex>FILTER</md-button>
+    </div>
+</md-dialog>

@@ -1,0 +1,34 @@
+.setting_tabs>span {
+    background-color: white !important;
+    font-weight: 700 !important;
+}
+
+#save_settings_changes {
+    background-color: #3D5AFE !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+#save_settings_changes:hover {
+    background-color: #E91E63 !important;
+}
+
+md-tab {
+    background-color: white !important;
+}
+
+md-tabs.md-default-theme md-ink-bar,
+md-tabs md-ink-bar {
+    color: #2196F3 !important;
+    background-color: #2196F3 !important;
+}
+.detail-toolip{
+    color: #2196F3 !important;
+}
+md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-default-theme.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused, md-tabs.md-default-theme.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon {
+  color: #2196F3 !important;
+  font-weight: 700 !important;
+}
+.setting_tabs{
+    background-color: #455A64 !important;
+}

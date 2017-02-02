@@ -1,0 +1,31 @@
+.sanitization-filter-toolbar {
+    background-color: #3D5AFE !important;
+    color: white !important;
+}
+
+.close-sanitization-filters {
+    background-color: #3D5AFE !important;
+    color: white !important;
+    font-weight: 700;
+}
+.close-sanitization-filters:hover {
+    background-color: #283593 !important;
+}
+.cancel-sanitization-filters {
+    background-color: #E91E63 !important;
+    color: white !important;
+    font-weight: 700;
+}
+.cancel-sanitization-filters:hover {
+    background-color: #283593 !important;
+}
+.md-dialog-container {
+    width: 100% !important;
+}
+#filter-title{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.filter-input:focus{
+    border-color: #3D5AFE !important;
+}

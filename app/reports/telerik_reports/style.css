@@ -1,0 +1,23 @@
+ #reportViewer1 {
+     width: 100%;
+     height: 800px;
+ }
+ 
+ .telerik_button {
+     background-color: #3D5AFE !important;
+     color: white !important;
+     font-weight: 700;
+ }
+ 
+ .telerik_button:hover {
+     background-color: #D81B60 !important;
+     color: white !important;
+ }
+ #telerik_action_holder{
+     margin-top: 3em;
+ }
+    md-select-value {
+     border: 0px !important;
+     border-bottom: solid 2px #3D5AFE !important;
+     border-radius: 0px !important;
+ }

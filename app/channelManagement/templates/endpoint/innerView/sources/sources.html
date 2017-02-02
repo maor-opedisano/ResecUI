@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="app/channelManagement/templates/endpoint/innerView/sources/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="2"></div>
+
+<div layout="column" layout-margin ng-class="{'notEditable': !ctrl.EndpointSourcesAreEditable}" id="edition_section" ng-cloak ng-if="ctrl.TemplateConditions.isEndpoint">
+    <json-formatter json="ctrl.InputConfiguration"></json-formatter>
+    <json-formatter json="ctrl.OutputConfiguration"></json-formatter>
+    <div layout="row" layout-margin layout-align="end center" ng-cloak>
+        <md-button class="strong margin_top md-raised" id="edit_IO" edit-inputs-and-outputs>EDIT</md-button>
+    </div>
+    <div layout="row" layout-align="space-between center">
+        <md-content class="md-title">Inputs</md-content>
+        <md-content class="md-title">Outputs</md-content>
+    </div>
+    <div layout="row" layout-align="space-between center" layout-margin>
+        <channel-inputs-sources id="inputs_sources" flex="50" match-parent-width></channel-inputs-sources>
+        <channel-outputs-sources id="outputs_sources" flex="50" match-parent-width></channel-outputs-sources>
+    </div>
+    <div layout="row" layout-align="space-between center" layout-margin>
+        <div layout="column" flex>
+            <i-smb ng-repeat="ISMB in ctrl.ismbList"></i-smb>
+        </div>
+        <div layout="column" flex>
+            <o-smb ng-repeat="OSMB in ctrl.osmbList" class="animated fadeInUp"></o-smb>
+        </div>
+    </div>
+</div>
+<div ng-if="ctrl.TemplateConditions.isDirWatcher">
+    <dw-sources></dw-sources>
+</div>

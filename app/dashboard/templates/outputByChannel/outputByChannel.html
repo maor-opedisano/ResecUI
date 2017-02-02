@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="app/dashboard/templates/inputsByChannel/style.css" />
+<link rel="stylesheet" href="app/dashboard/templates/outputByChannel/style.css" />
+<div layout="column" layout-margin md-whiteframe="6" id="dTotalInputs">
+    <div layout="row" layout-align="center center" id="dTotalInputsTitle">TOTAL OUTPUTS</div>
+    <div ng-repeat="i in ctrl.totalInputs" layout="row" layout-align="space-between center" layout-padding id="dTotalInputWrapper">
+        <div layout="column" layout-align="center start">
+            {{i.total}}
+            <small>Total Waiting Files</small>
+        </div>
+        <div layout="column" layout-align="center start">
+            {{i.time}}
+            <small>Current Waiting Time</small>
+        </div>
+    </div>
+</div>
+<md-virtual-repeat-container id="dashOutputList" layout-margin md-whiteframe="6" class="dOutput">
+    <md-list>
+        <div ng-repeat="i in ctrl.output">
+            <md-list-item layout="row" layout-padding class="dOutputDataContainer" get-height>
+                <div layout="column" layout-align="center center" flex="40">
+                    <md-icon md-svg-src="{{i.iconURL}}" class="md-42"></md-icon>
+                    <md-content class="md-caption">{{i.name}}</md-content>
+                </div>
+                <div layout="column" flex layout-align="center start" id="dOutputResultsHolder" class="superPartialDividerLeft" layout-padding>
+                    <div layout="row" layout-align="none center">
+                        <md-tooltip md-direction="right">
+                            Passed Files
+                        </md-tooltip>
+                        <md-icon md-svg-src="icons/passedFiles.svg" class="dOutputIcons"></md-icon>
+                        <md-content class="dOutputLegend"><strong>{{i.passed}}</strong></md-content>
+                    </div>
+                    <div layout="row" layout-align="none center">
+                        <md-tooltip md-direction="right">
+                            Modified Files
+                        </md-tooltip>
+                        <md-icon md-svg-src="icons/modifiedFiles.svg" class="dOutputIcons"></md-icon>
+                        <md-content class="dOutputLegend"><strong>{{i.modified}}</strong></md-content>
+                    </div>
+                    <div layout="row" layout-align="none center">
+                        <md-tooltip md-direction="right">
+                            Blocked Files
+                        </md-tooltip>
+                        <md-icon md-svg-src="icons/blockedFiles.svg" class="dOutputIcons"></md-icon>
+                        <md-content class="dOutputLegendRed"><strong>{{i.blocked}}/{{i.total}}</strong></md-content>
+                    </div>
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+        </div>
+    </md-list>
+</md-virtual-repeat-container>

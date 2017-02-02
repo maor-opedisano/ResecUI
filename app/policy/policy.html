@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="app/policy/style.css" />
+<div layout='column' layout-gt-sm='column' id='policyMainContent' ng-cloak layout-fill>
+    <md-content layout='row' flex>
+        <policy-sidenav layout-fill></policy-sidenav>
+        <md-content layout-fill layout='column' id="policyNotScrollable" ng-if="!ctrl.NoPolicyExists">
+            <policy-graph-toolbar></policy-graph-toolbar>
+            <div class="policyInnerWrapper">
+                <nav class="md-whiteframe-8dp" id="policyMainNav">
+                    <ul class="nav nav-justified" id="policyNav">
+                        <li><a ui-sref=".dashboard" ui-sref-active="UISelectedNav"><strong>POLICY DASHBOARD</strong></a></li>
+                        <li><a ui-sref=".definition.fileType" ng-class="{'UISelectedNav': $state.current.ParentID === 'PolicyDefinition'}"><strong>WHAT IS THIS POLICY</strong></a></li>
+                    </ul>
+                </nav>
+                <md-content data-ui-view ng-cloak id="policyDefintionView"></md-content>
+            </div>
+        </md-content>
+        <md-content ng-if="ctrl.NoPolicyExists" layout="row" layout-align="center center" flex="100">
+            <h2>No Policy currently exist yet, Please create a new policy by clicking on "New Policy" on the sidenav</h2>
+        </md-content>
+    </md-content>
+</div>

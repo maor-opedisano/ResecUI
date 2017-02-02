@@ -1,0 +1,17 @@
+#endpointDashboardTopUsers{
+    background-color: white;
+    margin-top: 1em;
+    padding-bottom: 0px;
+}
+
+.customChips{
+    border-radius: 50px;
+    padding: 5px 10px;
+    color: white;
+    background-color: darkblue;
+    width: auto;
+    margin-bottom: 0px !important;
+}
+#EndpointTopFilesIcon{
+    margin-top: 0px !important;
+}

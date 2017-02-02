@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="app/channelManagement/templates/newChannel/templates/step1/description/style.css" />
+
+
+<div id="wrapper" class="md-whiteframe-8dp">
+    <div layout="row" layout-padding id="channelDescSection">
+        <md-icon md-svg-src="icons/ncEditDesc.svg" id="editIcon" class="md-36" ng-click=""></md-icon>
+        <md-content class="md-title" id="channelDesc">Description</md-content>
+    </div>
+    <div layout="row" layout-align="center start" layout-padding id="descEditingArea">
+        <textarea flex="80" disabled layout-padding placeholder="enter a desc" id="descTXTArea" ng-model="ctrl.channelDescription"></textarea>
+        <div layout="column">
+            <md-button>
+                <md-icon edit-desc class="material-icons" id="editDesc">edit</md-icon>
+            </md-button>
+            <md-button conf-desc class="hidden" id="confDesc">
+                <md-icon class="material-icons">done</md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>

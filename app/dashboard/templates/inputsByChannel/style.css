@@ -1,0 +1,49 @@
+    #dashInputList {
+        min-height: 70%;
+        background-color: white;
+        border-radius: 5px;
+        border-top:solid 0.3em #773EB2  
+}
+
+    
+    .md-42 {
+        min-height: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+        width: 42px !important;
+    }
+    
+    #dTotalInputs {
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+    #dProgressWrapper {
+        padding-left: 1em !important;
+    }
+    
+    .superPartialDividerLeft {
+        position: relative;
+    }
+    
+    .superPartialDividerLeft:after {
+        content: '';
+        width: 2px;
+        margin-top: 0%;
+        height: 70%;
+        background: #f1f1f1;
+        position: absolute;
+        left: -2px;
+    }
+    #dTotalInputsTitle{
+        border-bottom: solid 0.1em #773EB2;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    #dTotalInputWrapper{
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+.increaseMBottom{
+    margin-bottom: 3em;
+}

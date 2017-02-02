@@ -1,0 +1,32 @@
+<div ng-http-loader methods="['GET']" template="app/common/templates/loader.html" ttl="1"></div>
+<div layout="column" flex layout-fill id="loginBody" role="main" ng-init="ctrl.CheckIfCookies()">
+    <md-content layout="column" id="content">
+        <md-icon md-svg-src='login/resecLogo.svg' class='md-150'></md-icon>
+        <div layout="row" layout-align="center center">
+            <md-whiteframe id='loginForm' class="md-whiteframe-24dp" layout="column" flex="30" layout-padding flex-sm='90' flex-xs='90'>
+                <md-content layout='column' layout-align='center stretch' layout-margin>
+                    <md-input-container>
+                        <label>Server</label>
+                        <input ng-model="ctrl.serverName" id="ServerName" ng-keypress="ctrl.LogUserInOnEnter($event)">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>User</label>
+                        <input ng-model="ctrl.UserName" id="username" ng-keypress="ctrl.LogUserInOnEnter($event)" ng-class="{'error animated shake': !ctrl.is_login_nahon}">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input ng-model="ctrl.Password" type="password" id="password" ng-keypress="ctrl.LogUserInOnEnter($event)" ng-class="{'error animated shake': !ctrl.is_login_nahon}">
+                    </md-input-container>
+                    <md-input-container layout="row" layout-align="space-between center">
+                        <md-button flex="45" id="login-button" check-credentials><strong>Login</strong></md-button>
+                        <div layout="row" flex layout-align="center center">
+                            <md-checkbox id="remember-me" aria-label="remember me" ng-model="ctrl.IsRememberMe"></md-checkbox>
+                            REMEMBER ME
+                        </div>
+                    </md-input-container>
+                </md-content>
+            </md-whiteframe>
+        </div>
+    </md-content>
+    <md-content class="error_message animated fadeIn md-title" ng-if="!ctrl.is_login_nahon" layout-align="center center" layout="row">Please Check Your Credentials</md-content>
+</div>

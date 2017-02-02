@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="app/reports/sanitization/style.css" />
+<center>
+    <div ng-cloak flex-gt-md="95" md-whiteframe="7" class="sanitization-table-holder">
+        <md-table-container class="sanitization-table-container">
+            <table md-table md-progress=" get_data" class="sanitization-table" ng-model="selected">
+                <thead md-head class="santization-head" md-order="query.order">
+                    <tr md-row>
+                        <th md-column md-numeric>
+                            <md-button class="md-icon-button" ng-click="open_sanitization_filter()" aria-label="soulant">
+                                <md-icon md-svg-src="icons/filter.svg"></md-icon>
+                            </md-button>
+                        </th>
+                        <th md-column md-order-by="StartTime"><span>Start Time</span></th>
+                        <th md-column md-numeric md-order-by="Duration"><span>Duration</span></th>
+                        <th md-column md-order-by="User">User</th>
+                        <th md-column>File Name</th>
+                        <th md-column md-numeric md-order-by="Size">Size (KB)</th>
+                        <th md-column md-order-by="ProcessingServer">Processing Server</th>
+                        <th md-column md-order-by="Status">Status</th>
+                        <th md-column md-order-by="Outcome">Outcome</th>
+                        <th md-column>Actions</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="x in  data.List | filter: filter.search | orderBy:  query.order | limitTo:  query.PageSize" md-auto-select="options.autoSelect">
+                        <td md-cell>
+                            <md-button class="md-icon-button clickMe" sanitizationId="{{x['Sanitization Id']}}" ng-click="show_details_modal_ready(x['Sanitization Id'])">
+                                <md-icon>info_outline</md-icon>
+                            </md-button>
+                        </td>
+                        <td md-cell>{{x["Start Time"] | date:"MM/dd/yyyy ':' h:mma"}}</td>
+                        <td md-cell>{{x.Duration}}</td>
+                        <td md-cell>{{x.User}}</td>
+                        <td md-cell>{{x['File Name']}}</td>
+                        <td md-cell>{{x.Size}}</td>
+                        <td md-cell>{{x["Processing Server"]}}</td>
+                        <td md-cell>{{x.Status}}</td>
+                        <td md-cell>{{x.Outcome}}</td>
+                        <td md-cell>{{x.Actions}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="query.PageSize" md-limit-options="limitOptions" md-page="query.PageIndex" md-total="{{total_length}}"
+            md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks"></md-table-pagination>
+    </div>
+</center>

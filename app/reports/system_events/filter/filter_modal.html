@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="app/reports/system_events/filter/style.css" />
+<md-dialog flex="50">
+    <md-toolbar layout-padding class="blue_toolbar" layout="row" layout-align="space-between center">
+        Advanced Filters
+        <md-button class="md-icon-button" close-system-events-filter>
+            <md-icon>close</md-icon>
+        </md-button>
+    </md-toolbar>
+    <div layout-padding id="system_events_filter_main">
+        <md-input-container class="md-block md-input-no-horizontal-padding" flex>
+            <label>Notification Type</label>
+            <md-select ng-model="se_query.NotificationType">
+                <md-option ng-repeat="notification in notification_types" value="{{notification}}">
+                    {{notification}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div layout="row" flex layout-align="space-between center">
+            Start date
+            <md-datepicker ng-model="se_query.StartTime" md-placeholder="Start date"></md-datepicker>
+        </div>
+        <div layout="row" flex layout-align="space-between center">
+            End date
+            <md-datepicker ng-model="se_query.EndTime" md-placeholder="End date"></md-datepicker>
+        </div>
+        <md-input-container md-no-float class="md-block">
+            <input ng-model="se_query.server" placeholder="Server">
+        </md-input-container>
+        <md-input-container md-no-float class="md-block">
+            <input ng-model="se_query.details" placeholder="Details">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-padding layout-align="space-between center">
+        <md-button aria-label="1" flex class="cancel-button" cancel-system-events-filter md-whiteframe="5">CANCEL</md-button>
+        <md-button aria-label="2" flex class="confirm-button" confirm-system-events-filter md-whiteframe="5">FILTER</md-button>        
+</md-dialog>

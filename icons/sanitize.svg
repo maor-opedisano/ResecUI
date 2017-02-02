@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="32px" viewBox="0 0 28 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>1480019862_filter</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1480019862_filter" fill="#FFFFFF">
+            <g id="filter">
+                <rect id="Rectangle-path" x="14" y="12" width="4" height="20"></rect>
+                <rect id="Rectangle-path" x="14" y="0" width="4" height="6"></rect>
+                <polygon id="Shape" points="28 9 24 5 24 8 0 8 0 10.001 24 10.001 24 13"></polygon>
+                <polygon id="Shape" points="8 16 0 16 0 17.999 8 17.999 8 21 12 17 8 13"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

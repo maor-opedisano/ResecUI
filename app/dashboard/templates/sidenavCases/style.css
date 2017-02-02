@@ -1,0 +1,22 @@
+#casesSidenav {
+    background-color: #222172 !important;
+}
+
+#casesTrigger {
+    background-color: #222172;
+    color: #E1E8F6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+#casesTriggerFooter{
+    width: 4px !important;
+    background-color: red;
+    float: right;
+}
+#casesTriggerWrapper{
+    margin-right: 0px !important;
+}

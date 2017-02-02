@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="app/reports/style.css" />
+
+<div layout="row" layout-margin class="reports-menu-wrapper" layout-wrap layout-align="space-between start">
+  <div class="reports-menu-cards" md-whiteframe="6" flex="30" ng-repeat="x in ctrl.menu">
+    <div class="reports-menu-header" layout="row" layout-align="start center" layout-padding md-whiteframe="4">
+      <h3>{{x.name}}</h3>
+    </div>
+    <div class="reports-menu-description">
+      <md-content class="md-subhead" layout-margin>
+        {{x.description}}
+      </md-content>
+    </div>
+    <div class="reports-menu-action" layout="row" layout-align="end center" layout-margin> 
+      <md-button class="reports-action-button" ui-sref="{{x.sref}}">GO TO {{x.name}}</md-button>
+    </div>
+  </div>
+</div>
+
+
+
+

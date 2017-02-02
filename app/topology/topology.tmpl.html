@@ -1,0 +1,15 @@
+<json-formatter json="ctrl.ClusterData" ></json-formatter>
+<json-formatter json="ctrl.DemoData"></json-formatter>
+<div class="graph-section" layout="row" layout-margin md-whiteframe="6">
+    <div class="graph-children" ng-repeat="stat in ctrl.DemoData.Statistics" layout="column" layout-align="center center" flex="25">
+        <h3>{{stat.label}}</h3>
+        <p>{{stat.value}}</p>
+    </div>
+    <div class="graph-children" ng-repeat="graph in ctrl.DemoData.graphics" layout="column" layout-align="center center" flex="25">
+        <h3>{{graph.label}}</h3>
+        <p>{{graph.values}}</p>
+    </div>
+</div>
+
+
+

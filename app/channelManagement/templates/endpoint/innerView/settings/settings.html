@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="app/channelManagement/templates/endpoint/innerView/settings/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
+raw facets received from server
+<json-formatter json="ctrl.whoData"></json-formatter>
+channel facets
+<json-formatter json="ctrl.ChannelFacets"></json-formatter>
+all channel data
+<json-formatter json="ctrl.channel_data"></json-formatter>
+posted data
+<json-formatter json="ctrl.FacetsToPost"></json-formatter>
+<div layout="row" layout-align="end start">
+    <md-button edit-channel-settings ng-class="{'edit-mode-on': ctrl.AreSettingsEditable, 'edit-mode-off': !ctrl.AreSettingsEditable}" aria-label="edit settings">
+        <span ng-if="ctrl.AreSettingsEditable">DONE</span>
+        <span ng-if="!ctrl.AreSettingsEditable">EDIT</span>
+    </md-button>
+</div>
+<md-list md-whiteframe="4" class="settings">
+    <md-toolbar layout="row" layout-align="start center" layout-padding> 
+        <span>Agent Settings</span>
+    </md-toolbar>
+    <md-list-item ng-repeat="(L0Key, L0Value) in ctrl.whoData['Agent Settings'].Properties" ng-switch="L0Value.Type" layout="row"
+        layout-align="space-between center">
+        <span flex>{{L0Value.DisplayName}}</span>
+        <div ng-switch-when="FacetPropertyType_String" type="text">
+            <input ng-model="ctrl.ChannelFacets['Agent Settings'].Values[L0Key]" />
+        </div>
+        <div ng-switch-when="FacetPropertyType_Bool" >
+            <md-switch aria-label="bool" ng-model="ctrl.ChannelFacets['Agent Settings'].Values[L0Key]" string-to-boolean></md-switch>
+        </div>
+        <div ng-switch-when="FacetPropertyType_Int">
+            <input ng-model="ctrl.ChannelFacets['Agent Settings'].Values[L0Key]" string-to-number type="number" />
+        </div>
+        <div ng-switch-when="FacetPropertyType_SingleChoice">
+            <select ng-options="item as item for item in L0Value.AvailableValues" ng-model="ctrl.ChannelFacets['Agent Settings'].Values[L0Key]"></select>
+        </div>
+    </md-list-item>
+</md-list>

@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="app/channelManagement/templates/endpoint/innerView/dashboard/templates/topFiles/style.css" />
+
+<md-content id="endPointTopFiles" md-whiteframe="6">
+
+    <div layout="row" md-whiteframe="4" layout-padding layout-align="none center">
+        <md-icon id="EndpointTopFilesIcon" md-svg-src="icons/topFiles.svg" class="md-48"></md-icon>
+        <h4>Top Files Type</h4>
+    </div>
+
+    <md-virtual-repeat-container id="vertical-container" class="matchMyHeight">
+    <md-list>
+
+        <div md-virtual-repeat="x in ctrl.channelDashboard.TopFilesTypeList">
+
+            <md-list-item class="repeated-item" flex layout="row" layout-align="space-between center" layout-margin ng-switch="ctrl.isBlocked">
+                <p flex> {{x.Filetype}}</p>
+
+                <div class="progress topFilesProgressBar" flex="60" ng-switch-when=false>
+
+                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{x.ProcessedNumber}}" aria-valuemin="0" aria-valuemax="100" style="width: {{x.ProcessedNumber}}%; min-width: 2em">
+                        {{x.ProcessedNumber}}%
+                    </div>
+                </div>
+
+                <div class="progress topFilesProgressBar" flex="60" ng-switch-default>
+
+                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="{{x.BlockededNumber}}" aria-valuemin="0" aria-valuemax="100" style="width: {{x.BlockededNumber}}%; min-width: 2em">
+                        {{x.BlockededNumber}}%
+                    </div>
+                </div>
+
+                <p flex="10" ng-switch-when=false>{{x.ProcessedNumber}}%</p>
+                <p flex="10" ng-switch-default>{{x.BlockededNumber}}%</p>
+
+            </md-list-item>
+        </div>
+
+        <md-divider></md-divider>
+        </div>
+    </md-list>
+</md-virtual-repeat-container>
+</md-content>

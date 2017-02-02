@@ -1,0 +1,37 @@
+<md-toolbar hide-xs hide-sm hide-md layout='row' layout-padding class='md-whiteframe-8dp' id='toolbar2Policy' layout-align='space-around center' match-top-bar-height>
+    <div layout-align='center center' layout='column' class='superPartialDivider topBarChild' flex="20">
+        <md-content>{{ctrl.policy.Name}}</md-content>
+    </div>
+    <div layout='column' layout-align='center center' class='superPartialDivider topBarChild' flex="20">
+        <h3 class='purple'>{{ctrl.dashboardData.TotalUsers}}</h3>
+        <small class='caption gray'>Users of this policy</small>
+    </div>
+    <div layout='column' layout-align='center center' class="superPartialDivider topBarChild" flex="20">
+        <div layout='row' layout-align='center center'>
+            <div flex='15' layout-aling='center center'>
+                <ng-md-icon icon='arrow_downward' style='fill:red' size='36'></ng-md-icon>
+            </div>
+            <div flex='15' layout='row' layout-align='center center'>
+                <h3 class='purple marginLeft'>{{ctrl.dashboardData.AllSanitizationNumericResults.TotalBlocked}}</h3>
+            </div>
+            <div flex>
+                <!--<canvas id="blockedFilesGraph" class="chart chart-line" chart-data="ctrl.data" chart-labels="ctrl.labels" chart-series="ctrl.series" chart-options="ctrl.options" chart-dataset-override="datasetOverride" chart-click="ctrl.onClick" </canvas>-->
+            </div>
+        </div>
+        <small class='gray'>Blocked Files</small>
+    </div>
+    <div layout='column' layout-align='center center' flex="20" class="topBarChild">
+        <div layout='row' layout-align='center center'>
+            <div flex='15' layout-aling='center center'>
+                <ng-md-icon icon='arrow_upwards' style='fill:#773EB2' size='36'></ng-md-icon>
+            </div>
+            <div flex='15' layout='row' layout-align='center center'>
+                <h3 class='purple marginLeft'>{{ctrl.dashboardData.AllSanitizationNumericResults.TotalProcessed}}</h3>
+            </div>
+            <div flex>
+                <!--<canvas style='width: 80%; height: 15%' id="sanitizedFileGraph" class="chart chart-line" chart-data="ctrl.data" chart-labels="ctrl.labels" chart-series="ctrl.series" chart-options="ctrl.options" chart-dataset-override="datasetOverride" chart-click="ctrl.onClick" </canvas>-->
+            </div>
+        </div>
+        <small class='gray'>Sanitized Files</small>
+    </div>
+</md-toolbar>

@@ -1,0 +1,75 @@
+  .card-holder{
+      margin-top: 2em !important;
+  }
+  
+  .action-chips {
+        background-color: #2196F3;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.13em;
+        color: white;
+        padding: 0.5em 1em;
+    }
+    
+    .default-values {
+        width: 100%;
+    }
+    
+    .cards {
+        background-color: white;
+        border-radius: 4px;
+        margin-bottom: 2em;
+    }
+    
+    .white {
+        color: white !important;
+    }
+    
+    .card-title {
+        background-color: #2196F3;
+        color: white;
+    }
+    
+    .action-pannel {
+        border-bottom: solid 1.5px #EEEEEE;
+    }
+    
+    .action-category {
+        color: #0D47A1;
+        font-weight: 600;
+    }
+    
+    .actions {
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+        border-bottom: solid 1.5px #EEEEEE;
+    }
+    .HIGH{
+        background-color:#ff4444;
+    }
+    .MEDIUM{
+        background-color: #ffbb33;
+
+    }
+    .LOW{
+        background-color: #00C851;
+    }
+
+.legend{
+    height: 2em;
+    border-radius: 4px;
+    margin-bottom: 2em;
+}
+.legend div{
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-weight: 750 !important;
+}
+ .legend:last-child{
+    border-radius: 100px;
+}

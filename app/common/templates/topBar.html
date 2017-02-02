@@ -1,0 +1,29 @@
+<md-toolbar id='dashboardToolbar' layout='row' layout-align='space-between center' layout-padding layout-sm='column' layout-xs='column'
+    md-whiteframe="12">
+    <md-content class='md-headline darkPurple' layout="row">
+        <a ui-sref="app.dashboard" layout="row" layout-align="center center">
+            <md-icon md-svg-src="IMG/icons/resecLogo.svg" class="main-logo"></md-icon>
+        </a>
+        <!--<a class="parent_url" ui-sref="{{$state.current.parentUrl}}">
+           {{$state.current.parentName}}
+        </a>-->&nbsp{{$state.current.displayName}}
+    </md-content>
+    <div layout="row" layout-align="space-between center">
+        <md-input-container class="noMarginInput" ng-hide=" $state.current.classSelector === 'cluster'">
+            <md-select ng-model='$rootScope.selectedTime' placeholder="Real Time">
+                <md-option><small>Real Time</small></md-option>
+                <md-option><small>1 Hour</small></md-option>
+                <md-option selected><small>1 Day</small></md-option>
+                <md-option><small>1 Week</small></md-option>
+                <md-option><small>1 Month</small></md-option>
+            </md-select>
+        </md-input-container>
+        <p>{{ctrl.Countdown}}</p>
+        <md-button class="md-icon-button md-primary" refresh>
+            <md-icon>refresh</md-icon>
+        </md-button>
+        <md-button class="md-icon-button md-primary" logout>
+            <md-icon>exit_to_app</md-icon>
+        </md-button>
+    </div>
+</md-toolbar>

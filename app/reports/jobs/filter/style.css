@@ -1,0 +1,33 @@
+.jobs-filter-toolbar {
+    background-color: #3D5AFE !important;
+    color: white !important;
+}
+
+.filter-jobs-button {
+    background-color: #3D5AFE !important;
+    color: white !important;
+    font-weight: 700;
+}
+.filter-jobs-button:hover {
+    background-color: #283593 !important;
+}
+.cancel-jobs-filters {
+    background-color: #E91E63 !important;
+    color: white !important;
+    font-weight: 700;
+}
+.cancel-jobs-filters:hover {
+    background-color: #283593 !important;
+}
+
+#filter-title{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.filter-input:focus{
+    border-color: #3D5AFE !important;
+}
+
+.input-label{
+    color: #3D5AFE !important;
+}

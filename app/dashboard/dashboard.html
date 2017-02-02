@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="app/dashboard/style.css" />
+<div layout="column" id="dashoardContainer" get-height ng-cloak sync-scroll class="animated fadeIn" ng-cloak>
+
+<!--    <toolbar-top></toolbar-top> -->
+
+    <div layout-xl='row' layout gt-md='row' layout-margin layout-md='column' layout-sm='column' layout-xs='column' layout-align-xl='space-around center' layout-align-lg='space-between center' id='dashoardTableContainer'>
+        <!-- table 1-->
+        <div flex-xl="35" flex-lg="35" flex-md="35" flex-sm="90" flex-xs="90" c>
+            <d-inputs-by-channel></d-inputs-by-channel>
+        </div>
+
+
+        <div flex-xl="25" flex-lg="25" flex-md="25" flex-sm="90" flex-xs="90">
+            <div layout='row' layout-margin layout-align='center center' hide-xs hide-sm>
+                <md-icon md-svg-src="icons/resecLogo.svg" class="md-120 "></md-icon>
+            </div>
+            <resec-table></resec-table>
+        </div>
+
+
+        <div flex-xl="35" flex-lg="35" flex-md="35" flex-sm="90" flex-xs="90">
+            <!--Centered title of of table -->
+
+            <output-by-channel></output-by-channel>
+        </div>
+   <!-- <d-cases-sidebar></d-cases-sidebar>-->
+
+    </div>
+
+</div>

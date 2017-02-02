@@ -1,0 +1,208 @@
+.input_output_list{
+    border-radius: 5px;
+    margin-left: 0px !important;
+    width: 100% !important;
+}
+.strong{
+   font-weight: 600; 
+}
+.width_48{
+    width: 48% !important;
+}
+.margin_top{
+    margin-top: 3em;
+}
+.input_is_selected{
+    background-color: #0D47A1;
+    border-radius: 5px;
+   
+}
+.input_is_selected > md-content{
+color: white
+}
+
+.input_is_selected >md-icon{
+color: white !important;
+}
+.input_equal_width{
+    width: 32% !important;
+}
+.no-padding-left{
+    padding-left: 0px !important;
+}
+.no-padding-right{
+    padding-right: 0px !important;
+}
+.notEditable{
+    pointer-events: none;
+}
+/* old css from when this section was in "new channel" section */
+
+.ncil{
+    width: 25%;
+}
+.ncol{
+    width: 25%;
+}
+
+.iSMB{
+    margin-bottom: 1em;
+}
+.oSMB{
+    margin-bottom: 1em;
+}
+#il{
+    margin-bottom: 1em;
+}
+#ol{
+    margin-bottom: 1em;
+}
+#ilWrapper{
+    width: 49%;
+}
+#olWrapper{
+    width: 49%;
+}
+
+.md-46{
+    min-height: 46px !important;
+    min-width: 46px !important;
+  
+}
+#theRow{
+    background-color: white;
+    margin-top: 1.5em;
+}
+.ncitName{
+    margin-top: 1em;
+}
+.ncotName{
+    margin-top: 1em;
+}
+.ncInputSettings{
+    background-color: white;
+}
+#OSMBSettings{
+    background-color: white;
+}
+.notToBeFolded{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: solid 2px #f1f1f1;
+}
+
+#ncInputTitle > md-icon{
+    margin-left: 1em;
+    margin-right: 1em;
+    
+}
+#ncInputTitle > md-content{
+    font-size: 1.5em;
+}
+.ncBorderMe{
+    border-right: solid 2px #f1f1f1;
+}
+
+.ncIconNoMargin{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.ncInputListInput{
+    border: 0px;
+    width: 100%; 
+    height: 2.5em;
+    border-radius: 5px;
+    padding-left: 1em;
+}
+.ncMdButton{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.ncInputRow{
+        border-bottom: solid 2px #f1f1f1;
+
+}
+.ncInputListSelect{
+    border: 0px;
+    width: 65%;
+    height: 2.5em;
+}
+.ncInputListSelect, input[type="color" i][list]{
+    background-color: white;
+}
+.ncInputNoVP{
+     padding-top: 0px !important;
+     padding-bottom: 0px !important;
+     border-right: solid 2px #f1f1f1;
+}
+.ncInputListSelectFullWidth{
+    border: 0px;
+    width: 95%;
+    height: 2.5em;
+}
+.ncInputListSelectFullWidth, input[type="color" i][list]{
+    background-color: white;
+}
+.customSwitch{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.noVP{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.ncotWrapper .ncitWrapper {
+    background-color: white;
+}
+.ncioTitleWrapper{
+    margin: 2em 0px;
+}
+.ncPaddingTop{
+    padding-top: 1em;
+}
+.ncPaddingBottom{
+    padding-bottom: 1em;
+}
+
+.iSelected{
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+}
+.oSelected{
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+}
+
+.iSelected  > md-content{
+    color: white;
+}
+.oSelected  > md-content{
+    color: white;
+}
+.ncIconSelected{
+    fill : white;
+}
+.ncDeleteSMBS{
+    background-color: #DA2244;
+    color: white !important;
+    font-weight: bold;
+}
+.ncDeleteSMBS:hover{
+    background-color: #190051 !important;
+    color: white !important;
+    font-weight: bold;
+}
+#edit_IO{
+    background-color: #2196F3 !important;
+    font-weight: 600;
+    color: white;
+}
+#edit_IO:hover{
+    background-color: #EC407A !important;
+}
+.selected{
+    background-color: yellow !important;
+}

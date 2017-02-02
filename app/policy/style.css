@@ -1,0 +1,69 @@
+.UISelectedNav{
+    background-color: #6B69EB;
+    color: white !important;
+}
+
+.stop-scrolling {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+#topFileTypeMdList{
+    background-color: white;
+    width: 49%;
+}
+
+#topUsersMdList{
+    background-color: white;
+    width: 49%;
+}
+
+#pdWrapper{
+    margin-bottom : 2em;
+    margin-top: 2em;
+}
+.policyInnerWrapper{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#top-files-policy{
+    height: 400px;
+}
+.policy-top-file-type{
+    border-bottom: solid 1px #E0E0E0;
+}
+.lightGreen{
+    color: #00E676
+;
+}
+.danger{
+    color: #DD2C00;
+}
+#topFileTypeMdList{
+    border-radius: 5px;
+}
+.darkPurple{
+    color: #190051;
+}
+
+.md-72{
+    min-height: 72px;
+    min-width: 72px;
+}
+#top-file-type-header{
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.top-file-icon{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.type-select-top-file-type{
+    border: solid 2px white;
+}
+.marginLeft{
+    margin-left: 2em !important;
+}

@@ -1,0 +1,24 @@
+#policyDefinitionSwitcherBK{
+    background-color: white;
+    margin-top: 2em;
+}
+
+#policyDefinitionSwitcher{
+    border-radius: 100px;
+    border: solid 1px #B9B9B9;
+    background-color: white;
+    color: #484554;
+}
+.roundedTabSelector{
+    border-radius: 100px;
+    color: #484554 !important;
+}
+
+.roundedTabSelector:focus{
+    background-color: #6B69EB !important;
+    color: white !important;   
+}
+.policyInnerNavUISelected{
+    background-color: #6B69EB;
+    color: white !important;
+}

@@ -1,0 +1,35 @@
+#headline {
+    color: #6B69EA;
+}
+
+#mainRow {
+    border-left: solid 0.5em #6B69EA;
+    background-color: white;
+}
+
+#cancelButton {
+    border-radius: 100px;
+    border: solid 2px #D32F2F;
+    color: #D32F2F;
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#createButton {
+    border-radius: 100px;
+    width: 5em;
+    border: solid 2px #23CCC7;
+    color: white;
+    background-color: #23CCC7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.red {
+    color: #D32F2F;
+}
+
+.turquoise {
+    color: white;
+}

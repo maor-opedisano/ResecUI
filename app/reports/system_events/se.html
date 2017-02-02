@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="app/reports/system_events/style.css" />
+<center>
+    <div flex-gt-md="95" md-whiteframe="7" class="sanitization-table-holder" ng-init="se_query">
+        <md-table-container class="sanitization-table-container">
+            <table md-table class="sanitization-table" ng-model="selected">
+                <thead md-head class="santization-head" md-order="se_query.order">
+                    <tr md-row>
+                        <th md-column>
+                            <md-button class="md-icon-button" open-system-events-filters>
+                                <md-icon class="md-36 se-filter-icon">filter_list</md-icon>
+                            </md-button>
+                        </th>
+                        <th md-column md-order-by="Time"><span>Time</span></th>
+                        <th md-column md-order-by="NotificationId"><span>ID</span></th>
+                        <th md-column md-order-by="ServerName"><span>Server Name</span></th>
+                        <th md-column md-order-by="Details"><span>Description</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="x in data.List | filter: filter.search | orderBy:  se_query.order | limitTo:  se_query.PageSize" md-auto-select="options.autoSelect">
+                        <td md-cell>
+                            <md-icon>some_icon</md-icon>
+                        </td>
+                        <td md-cell>{{x.Time | date:"MM/dd/yyyy ':' h:mma"}}</td>
+                        <td md-cell>{{x.NotificationId}}</td>
+                        <td md-cell>{{x.ServerName}}</td>
+                        <td md-cell>{{x.Details}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <md-table-pagination md-limit="se_query.PageSize" md-limit-options="limitOptions" md-page="se_query.PageIndex" md-total="{{total_length}}"
+            md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks"></md-table-pagination>
+    </div>
+</center>

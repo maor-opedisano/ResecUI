@@ -1,0 +1,37 @@
+#wrapper {
+        background-color: white;
+    }
+    
+    #editIcon {
+        margin-left: 0px !important;
+        margin-right: 0.5em !important;
+        width: 36px;
+        height: 36px;
+    }
+    
+    #channelNameSection {
+        border-bottom: solid 2px #DFE8F8;
+    }
+    
+    #channelName {
+        color: #0C0B47;
+    }
+    
+    #nameTXTArea {
+        border: 0px;
+        border-radius: 5px;
+        color: lightslategrey;
+        height: 8em;
+    }
+    
+    #descEditingArea {
+        margin-top: 0px;
+    }
+    
+    .activeTextArea {
+        border: solid 2px #dfe8f8 !important;
+    }
+    
+    .hidden {
+        visibility: none;
+    }

@@ -1,0 +1,129 @@
+.customChips {
+    background-color: #222073;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    margin-left: 0px;
+}
+.lightPurple {
+    color: #6B66E7;
+}
+.policyItem {
+    background-color: #0C0B47;
+    margin-bottom: 1em;
+}
+#policyListHolder {
+    background-color: #1E1D6B;
+}
+.searchPolicies {
+    border-radius: 10px;
+    background-color: transparent;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: solid 2px #2196F3 !important;
+    color: white;
+    width: 98%;
+}
+.searchPolicies:focus {
+    outline: none !important;
+}
+.searchPolicies::-webkit-input-placeholder {
+    color: white !important;
+}
+#policySidenavTop {
+    margin-top: 1.5em;
+}
+.marginRight1em {
+    margin-left: 0px;
+    margin-right: 0.5em;
+}
+.bold {
+    font-weight: 600
+}
+.noMarginBottom {
+    margin-bottom: 0px !important;
+}
+.noMarginLeft {
+    margin-left: 0px !important;
+}
+.policyListHover {
+    background-color: #3A389D;
+}
+[ng-drag].dragging {
+    opacity: 0.5;
+}
+[ng-drop].drag-enter {
+    border: solid 3px #EC407A;
+}
+.pinkIcon {
+    color: #EC407A;
+    margin-top: 0px !important;
+}
+.psGpeHolder {
+    margin-left: 1em !important;
+}
+.saveNContinue {
+    border: solid 2px #62D0C9;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-top: 2em;
+}
+.saveNContinue:focus {
+    color: white;
+}
+.saveNContinue:hover {
+    color: white;
+}
+.pinkishIcon {
+    color: #EC407A;
+}
+#new_policy_toolbar {
+    background-color: #3D5AFE;
+}
+#cancel_policy_creation {
+    background-color: #E91E63;
+    color: white;
+    font-weight: 600;
+}
+#confirm_policy_creation {
+    background-color: #3D5AFE;
+    color: white;
+    font-weight: 600;
+}
+#new_policy_name {
+    margin-top: 4em;
+}
+#new_policy_name>input:focus {
+    border-bottom: solid 2px #3D5AFE !important;
+}
+#new_policy_name >label {
+    color: #3D5AFE !important;
+    font-weight: 400;
+    padding-left: 9px !important;
+}
+/*dialogContent is added on DOM rendering to original id in the html = new_policy_modal*/
+#dialogContent_new_policy_modal {
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-radius: 3px !important;
+}
+.policy-name-edit{
+    border-bottom: solid 2px #E040FB;
+    padding-bottom: 2px;
+}
+.selectedPolicy {
+    background-color: #3A389D;
+}
+
+#new-channel-button{
+    background-color: #2196F3;
+    font-weight: 700;
+    color: white;
+}
+
+.name-in-edition{
+    border-bottom : solid 2px #E040FB!important;
+}

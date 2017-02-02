@@ -1,0 +1,42 @@
+<md-sidenav md-component-id="left" id="sidenavIndex" md-is-locked-open='true' class='md-whiteframe-4dp' layout-align='start center'
+    sidebar-hover layout-fill>
+    <md-list class="menuHolder" display-item-inline>
+        <md-list-item ui-sref-active="sidebarIconHover animated pulse" value="Dashboard">
+            <md-button md-no-ink ui-sref='app.dashboard' class='fullWidthButton white thisButton' layout="row" layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">dashboard</md-tooltip>
+                <md-icon md-svg-src="icons/dashboardLogo.svg"></md-icon>
+            </md-button>
+        </md-list-item>
+        <md-list-item value="Policy" ng-class="{'sidebarIconHover': $state.current.classSelector ==='policy'}">
+            <md-button md-no-ink class="thisButton fullWidthButton white" ui-sref="app.policy.dashboard" layout="row" layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">Policy</md-tooltip>
+                <md-icon md-svg-src="icons/policiesIcon.svg"></md-icon>
+            </md-button>
+        </md-list-item>
+        <md-list-item ui-sref-active="sidebarIconHover animated pulse" value="Topology">
+            <md-button md-no-ink ui-sref='app.clusterManagement' class='thisButton fullWidthButton white' layout="row" layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">Topology</md-tooltip>
+                <md-icon class='material-icons md-light'>tune</md-icon>
+            </md-button>
+        </md-list-item>
+        <md-list-item ui-sref-active="sidebarIconHover animated pulse" value="Reports">
+            <md-button md-no-ink ui-sref='app.reports' class=' thisButton fullWidthButton white' layout="row" layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">Reports</md-tooltip>
+                <md-icon class="material-icons md-light">assignment</md-icon>
+            </md-button>
+        </md-list-item>
+        <md-list-item ng-class="{'sidebarIconHover': $state.current.classSelector === 'channel'}" value="Channel Management">
+            <md-button md-no-ink ui-sref='app.channelManagement.endpoint.dashboard' class='thisButton fullWidthButton white' layout="row"
+                layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">Channel Management</md-tooltip>
+                <md-icon md-svg-src="icons/channelLogo.svg"></md-icon>
+            </md-button>
+        </md-list-item>
+        <md-list-item ui-sref-active="sidebarIconHover animated pulse" value="Settings">
+            <md-button md-no-ink ui-sref='app.settings' class='thisButton fullWidthButton white' layout="row" layout-align="center center">
+                <md-tooltip class="custom-toolip" md-direction="right">Settings</md-tooltip>
+                <md-icon class='material-icons md-light'>settings</md-icon>
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-sidenav>

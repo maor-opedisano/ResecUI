@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="app/policy/templates/policyDefinition/templates/settings/tree_values/style.css" />
+
+
+<md-dialog aria-label="extensions modal" class="fullscreen-dialog">
+
+  <md-toolbar class="tree-toolbar" layout="row" layout-align="center center">File Extensions</md-toolbar>
+  <md-dialog-content>
+
+    <div layout="row" layout-align="center start" layout-margin>
+      <md-input-container flex="40" md-no-float class="md-block" id="search-file-extensions">
+        <input ng-model="ext" placeholder="Search for an extension" />
+      </md-input-container>
+    </div>
+    <table class="table table-responsive">
+      <thead>
+        <th>Extension</th>
+        <th>Allow</th>
+      </thead>
+      <tbody ng-repeat="x in propValue.AvailableValues">
+
+        <tr ng-repeat="val in x.Value ">
+          <td> {{val.ClassificationExtensions}}</td>
+          <td>
+            <md-checkbox aria-label="extensions" ng-model="val.ClassificationUniqueStr"></md-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <md-button ng-click="onSave(propValue)">
+      save info
+    </md-button>
+    <md-button ng-click="onCancel()">cancel</md-button>
+  </md-dialog-actions>
+</md-dialog>

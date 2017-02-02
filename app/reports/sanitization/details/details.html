@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="app/reports/sanitization/details/style.css" />
+<div class="md-dialog-container">
+  <md-dialog layout-padding aria-label="whyyyyy">
+    <md-toolbar class="sanitization-detail-toolbar" layout="row" layout-align="space-between center">
+      <h3 id="details-title">Details</h3>
+      <md-button class="md-icon-button" close-sanitization-details aria-label="ok">
+        <md-icon md-svg-src="icons/close.svg"></md-icon>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-list>
+        <md-list-item layout="column" layout-align="start space-between">
+          <md-list-item ng-repeat="(key, value) in sanitization_details " layout="row" layout-align="space-between center" class="sanit-details-list-item">
+            <md-content class="md-subtitle">{{key}}</md-content>
+            <md-content class="md-subtitle">{{value}}</md-content>
+          </md-list-item>
+        </md-list-item>
+      </md-list>
+    </md-dialog-content>
+  </md-dialog>
+</div>

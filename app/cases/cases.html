@@ -1,0 +1,50 @@
+<h1>Create a new policy</h1>
+
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Policy Name" aria-describedby="policy-Name" ng-model="ctrl.Policy.GeneralInformations.PolicyName">
+    <input type="text" class="form-control" placeholder="Policy Description" aria-describedby="policy-desc" ng-model="ctrl.Policy.GeneralInformations.PolicyDescription">
+    
+    userList
+    <form name="userList">
+        <md-chips ng-model="ctrl.selectedUsers" md-autocomplete-snap md-on-add="ctrl.filterUsers()">
+            <md-autocomplete md-search-text="user" md-items="user in ctrl.users | filter: user" md-item-text="user.name" md-require-match="ctrl.requireMatch">
+                <span md-highlight-text="searchText">{{user.name}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+                <span>{{$chip.name}}</span>
+            </md-chip-template>
+        </md-chips>
+    </form>
+    
+    
+    groupList
+    <form name="groupList">
+        <md-chips ng-model="ctrl.Policy.UserGroupsList" md-autocomplete-snap>
+            <md-autocomplete md-search-text="group" md-items="group in ctrl.groups | filter: group" md-item-text="group" md-require-match="ctrl.requireMatch">
+                <span md-highlight-text="searchText">{{group}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+                <span>{{$chip}}</span>
+            </md-chip-template>
+        </md-chips>
+    </form>
+    
+    
+    channel List
+    <form name="channelID">
+        <md-chips ng-model="ctrl.selectedChannels" md-autocomplete-snap md-on-add="ctrl.filterChannels()">
+            <md-autocomplete md-search-text="id" md-items="channel in ctrl.channels | filter: id" md-item-text="channel.Name" md-require-match="ctrl.requireMatch">
+                <span md-highlight-text="searchText">{{channel.Name}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+                <span>{{$chip.Name || $chip.Id}}</span>
+            </md-chip-template>
+        </md-chips>
+    </form>
+</div>
+
+
+<md-button class="md-primary md-raised" post-policy>POST DATA</md-button>
+<p>Channel IDs {{ctrl.Policy.channelsIds}}</p>
+<p>Groups {{ctrl.Policy.UserGroupsList}}</p>
+<p>Users {{ctrl.Policy.UsersList}}</p>

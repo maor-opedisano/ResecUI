@@ -1,0 +1,34 @@
+    #wrapper {
+        background-color: white;
+    }
+    
+    #editIcon {
+        margin-left: 0px !important;
+        margin-right: 0.5em !important;
+        width: 36px;
+        height: 36px;
+    }
+    
+    #channelDescSection {
+        border-bottom: solid 2px #DFE8F8;
+    }
+    
+    #channelDesc {
+        color: #0C0B47;
+    }
+    
+    #descTXTArea {
+        border: 0px;
+        border-radius: 5px;
+        color: lightslategrey;
+        height: 8em;
+        margin-top: 0px;
+    }
+    
+    .activeTextArea {
+        border: solid 2px #dfe8f8 !important;
+    }
+    
+    .hidden {
+        visibility: none;
+    }

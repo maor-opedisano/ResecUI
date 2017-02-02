@@ -1,0 +1,23 @@
+.reports-menu-cards{
+    border-radius: 5px;
+    background-color: white;
+}
+.reports-menu-header{
+    background-color: #3D5AFE;
+    color: white;
+}
+.reports-menu-wrapper{
+    margin-top: 4em;
+}
+.reports-action-button{
+    background-color: #3D5AFE;
+    color: white;
+    font-weight: 700;
+}
+.reports-action-button:hover{
+    background-color: #E91E63 !important;
+    color: white;
+}
+.reports-menu-description{
+    margin: 3em 1.5em;
+}

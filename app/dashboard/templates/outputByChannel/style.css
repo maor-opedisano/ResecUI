@@ -1,0 +1,18 @@
+.dOutputIcons {
+    margin-right: 1.5em;
+}
+
+.dOutputLegend {
+    color: #190051;
+}
+
+.dOutputLegendRed {
+    color: red;
+}
+
+#dashOutputList {
+    min-height: 70%;
+    background-color: white;
+    border-radius: 5px;
+    border-top: solid 0.3em #773EB2
+}

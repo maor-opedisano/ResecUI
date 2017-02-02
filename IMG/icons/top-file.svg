@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="80px" viewBox="0 0 64 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>top-file</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="top-file" transform="translate(0.000000, 3.000000)">
+            <g id="Page-1">
+                <g id="Group-2">
+                    <g id="Group" transform="translate(0.000000, 13.000000)">
+                        <path d="M49,58.947 C49,61.738 46.73,64 43.931,64 L5.069,64 C2.269,64 0,61.738 0,58.947 L0,5.053 C0,2.262 2.269,0 5.069,0 L32.103,0 L49,16.842 L49,58.947 L49,58.947 Z" id="Shape" fill="#D12D30"></path>
+                        <path d="M49,15.899 L49,17.995 L35.187,17.995 C32.327,17.995 31.008,15.675 31.008,12.814 L31.008,0 L33.1,0 L49,15.899 L49,15.899 L49,15.899 Z" id="Shape" fill="#FB8D8D"></path>
+                    </g>
+                    <circle id="Oval" stroke="#2196F3" stroke-width="5" fill="#FFFFFF" cx="43" cy="18" r="18"></circle>
+                    <g id="10" transform="translate(32.000000, 5.000000)" font-size="20" font-family=".HelveticaNeueDeskInterface-Bold, San Francisco Display" fill="#134B94" font-weight="bold">
+                        <text>
+                            <tspan x="0" y="19">10</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

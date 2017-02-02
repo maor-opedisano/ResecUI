@@ -1,0 +1,41 @@
+.santization-head {
+    background-color: #3D5AFE;
+}
+
+.md-column {
+    color: white !important;
+    font-weight: 600;
+    font-size: 1.1em !important;
+}
+
+.sanitization-table {
+    background-color: white !important;
+}
+
+.sanitization-table-container {
+    margin-top: 5%;
+}
+
+md-table-pagination {
+    background-color: white;
+    border-top: solid 1px #333;
+}
+
+.label {
+    color: #333 !important;
+    font-size: 1.1em !important;
+}
+
+md-select-value {
+    border: 0px !important;
+}
+
+.md-sort-icon {
+    color: white !important;
+}
+
+.md-36 {
+    min-height: 36px !important;
+    min-width: 36px !important;
+    color: white !important;
+}

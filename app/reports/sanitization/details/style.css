@@ -1,0 +1,13 @@
+.sanitization-detail-toolbar{
+    background-color: #3D5AFE !important;
+    color: white !important;
+}
+#details-title{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.sanit-details-list-item{
+    border-bottom: solid 1px #C5CAE9 !important;
+    padding: 0px !important;
+}

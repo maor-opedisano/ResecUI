@@ -1,0 +1,32 @@
+.blue_toolbar{
+    background-color: #3D5AFE !important;
+    color: white !important;
+    font-weight: 500 !important;
+    padding-left: 1em !important;
+    
+
+}
+.md-input-no-horizontal-padding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+#system_events_filter_main{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.confirm-button {
+    background-color: #3D5AFE !important;
+    color: white !important;
+    font-weight: 700;
+}
+.confirm-button:hover {
+    background-color: #283593 !important;
+}
+.cancel-button {
+    background-color: #E91E63 !important;
+    color: white !important;
+    font-weight: 700;
+}
+.cancel-button:hover {
+    background-color: #283593 !important;
+}

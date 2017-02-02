@@ -1,0 +1,128 @@
+#fileTypeMain {
+    margin-top: 2em;
+}
+
+#policyFileTypeToolbar {
+    background-color: white;
+    padding-top: 1.3em;
+    padding-bottom: 1.3em;
+}
+
+#PDFTSearchBox {
+    background-color: white;
+    border-color: solid 1px #B9B9B9;
+    color: #B9B9B9;
+    margin-bottom: 0px;
+    margin-left: 1.5em;
+}
+
+#PDFTSearchBox>input {
+    border-radius: 100px;
+}
+
+#PDFTSearchIcon {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    color: #23CCC7;
+}
+
+#PDFTExceptionButton {
+    background-color: white;
+    border: solid 2px #23CCC7;
+    margin-right: 1.5em;
+    border-radius: 100px;
+    color: #23CCC7;
+}
+
+#PDFTExceptionButtonIcon {
+    color: #23CCC7;
+    margin-right: 0.3em;
+}
+
+#PDFTMainTable>thead {
+    background-color: white;
+    border-top: solid 1.5px #B9B9B9;
+}
+
+.PDFTMainTableRow>td {
+    background-color: #AAB7D1;
+}
+
+md-checkbox {
+    margin-bottom: 0px !important;
+}
+
+.custom-input {
+    border-bottom: solid 2px #2196F3 !important;
+    border-top: solid 0px #2196F3 !important;
+    border-left: solid 0px #2196F3 !important;
+    border-right: solid 0px #2196F3 !important;
+    background-color: transparent !important;
+}
+
+.custom-input:focus {
+    border-bottom: solid 2px #FF1744 !important;
+}
+
+.custom-select {
+    background-color: #2196F3 !important;
+    padding: 8px !important;
+    color: white !important;
+    border: solid 0px white !important;
+    font-weight: 800 !important;
+}
+
+table {
+    background-color: white;
+}
+
+thead {
+    background-color: #2196F3 !important;
+    color: white !important;
+}
+
+.parent-row {
+    background-color: #E8EAF6 !important;
+    color: #333 !important;
+}
+
+.not-editable {
+    pointer-events: none !important;
+}
+
+.filetype-not-edited {
+    background-color: #3F51B5 !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+.filetype-in-edition {
+    background-color: #D50000 !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+.advanced-mode-button {
+    background-color: #2196F3 !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+.basic-mode-button {
+    background-color: #3F51B5 !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+.extensions{
+    margin-left: 3em !important;
+}
+md-checkbox.md-checked ._md-icon{
+    background-color: #2196F3 !important;
+}
+
+.indeterminate-state{
+    background-color: red !important;
+}

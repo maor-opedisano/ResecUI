@@ -1,0 +1,138 @@
+<html lang="en" ng-app='resec'>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <!-- Angular Material style sheet -->
+    <!--<link rel="stylesheet" href="CSS/material.css">-->
+    <link href="bower_components/angular-material/angular-material.min.css" rel='stylesheet' type='text/css' />
+    <link href="CSS/Font/MaterialFonts.css" rel="stylesheet">
+    <link rel='stylesheet' href='CSS/bootstrap.css'>
+    <link rel='stylesheet' href='CSS/timeLineDashboard.css'>
+    <link rel='stylesheet' href='CSS/main.css'>
+    <link rel="stylesheet" href="CSS/Font/Roboto.css">
+    <link rel="stylesheet" href="CSS/cust.css">
+    <link rel="stylesheet" href="CSS/uiViewAnimations.css">
+    <link href='CSS/Font/Ubuntu.css' rel='stylesheet' type='text/css'>
+    <link href='CSS/animate.css' rel='stylesheet' type='text/css'>
+    <!--<link rel='stylesheet' href="bower_components/angular-material-expansion-panel/dist/md-expansion-panel.min.css"/>-->
+    <link rel='stylesheet' href='login/login.css' />
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/json-formatter/dist/json-formatter.min.css" />
+    <!-- data table : to load for data tables -->
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+    <!--Reports CSS-->
+    <link href="ReportViewer/styles/kendo.common.min.css" rel="stylesheet" id="common-css" />
+    <link href="ReportViewer/styles/kendo.blueopal.min.css" rel="stylesheet" id="skin-css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" />
+    <!--<script>
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+    </script>-->
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <script type="text/javascript" src="JS/libraries/jquery.min.js?q=1"></script>
+    <script src="JS/libraries/jquery-ui.js?q=1"></script>
+    <script type='text/javascript' src='JS/libraries/bootstrap.min.js?q=1'></script>
+    <script src="bower_components/angular/angular.min.js?q=1"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js?q=1"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js?q=1"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js?q=1"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js?q=1"></script>
+    <script src="bower_components/angular-dragdrop/src/angular-dragdrop.min.js?q=1"></script>
+    <script src="bower_components/angular-http-loader/app/package/js/angular-http-loader.min.js?q=1"></script>
+    <script type="text/javascript" src="bower_components/angular-indeterminate/dist/angular-indeterminate.js?q=1"></script>
+    <script src="JS/libraries/ui-route.login.min.js?q=1"></script>
+    <script type="text/javascript" src="JS/libraries/material.min.js?q=1"></script>
+    <script src='JS/libraries/chart.js?q=1'></script>
+    <script src='JS/libraries/angular-chart.js?q=1'></script>
+    <script src='JS/libraries/angular-chart.js?q=1'></script>
+    <script src='JS/libraries/vertilizer.js?q=1'></script>
+    <script src="JS/libraries/material-icons.min.js?q=1"></script>
+    <!-- <script src="bower_components/angular-translate/angular-translate.min.js?q=1"></script>
+    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js?q=1"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js?q=1"></script>-->
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js?q=1"></script>
+    <script src="bower_components/ngDraggable/ngDraggable.js?q=1"></script>
+    <script src="bower_components/json-formatter/dist/json-formatter.min.js?q=1"></script>
+    <script src="bower_components/ng-ip-address/src/ngIpAddress.js?q=1"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js?q=1"></script>
+    <script type="text/javascript" src="JS/libraries/chart-loader.js?q=1"></script>
+    <!--<script type="text/javascript" src="bower_components/underscore/underscore-min.js?q=1"></script>-->
+    <!-- bootstrap angular ui -->
+    <script src="JS/libraries/bootstrap-ui.min.js?q=1"></script>
+    <!-- Important Note: Angular Material Library rc1 version works well with list, rc2 is very unstable, the verison called here is V1.1RC01 
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js?q=1"></script>-->
+    <!-- Bootstrap and JQuery -->
+    <!-- Local Libraries -->
+    <script src='JS/module.js?q=1'></script>
+    <script src='JS/config/routing.js?q=1'></script>
+    <script src='JS/config/theming.js?q=1'></script>
+    <!--<script src='JS/config/translator.js?q=1'></script>-->
+    <script src='JS/customServices/services.js?q=123'></script>
+    <script src='login/services/authentification.js?q=1'></script>
+    <script src='login/login.js?q=123'></script>
+    <script src='login/directives.js?q=123'></script>
+    <script src='app/cases/cases.js?q=1'></script>
+    <script src='app/cases/directives.js?q=1'></script>
+    <script src="app/channelManagement/templates/endpoint/channelManagement.js?q=1"></script>
+    <script src='app/channelManagement/directives/directives.js?q=1'></script>
+    <script src='app/channelManagement/templates/sidebar/directives.js?q=1'></script>
+    <script src='app/channelManagement/templates/endpoint/endpoint.js?q=1'></script>
+    <script src='app/channelManagement/templates/endpoint/directives.js?q=1'></script>
+    <script src='app/channelManagement/templates/endpoint/innerView/sources/directives.js?q=1'></script>
+    <script src="app/channelManagement/templates/endpoint/innerView/sources/templates/exceptions-template/DW/directive.js?q=1"></script>
+    <script src="app/channelManagement/templates/endpoint/innerView/sources/templates/exceptions-template/templates.directives.js"></script>
+    <script src='app/channelManagement/templates/endpoint/innerView/settings/directives.js?q=1'></script>
+    <script src='app/channelManagement/templates/newChannel/common/controller.js?q=1'></script>
+    <script src='app/channelManagement/templates/newChannel/directives.js?q=1'></script>
+    <script src="app/channelManagement/templates/endpoint/innerView/who/directives.js?q=1"></script>
+    <script src="app/topology/agent/agent.directives.js?q=1"></script>
+    <script src="app/topology/agent/agent.controller.js?q=1"></script>
+    <script src="app/topology/cluster/cluster.directives.js?q=1"></script>
+    <script src="app/topology/cluster/cluster.controller.js?q=1"></script>
+    <script src='app/common/common.js?q=1'></script>
+    <script src='app/common/directive.js?q=1'></script>
+    <script src='app/dashboard/controller.js?q=1'></script>
+    <script src='app/dashboard/directives.js?q=1'></script>
+    <script src='app/dashboard/templates/outputByChannel/outputByChannel.js?q=1'></script>
+    <script src='app/dashboard/templates/resecTable/resecTable.js?q=1'></script>
+    <script src='app/policy/directives.js?q=1'></script>
+    <script src='app/policy/policy.js?q=1'></script>
+    <script src='app/policy/templates/policyDashboardTab/directives.js?q=1'></script>
+    <script src='app/policy/templates/policyGraphToolbar/directives.js?q=1'></script>
+    <script src='app/policy/templates/policyDefinition/templates/detection/directives.js?q=1'></script>
+    <script src='app/policy/templates/policyDefinition/templates/fileType/directives.js?q=1'></script>
+    <script src='app/policy/templates/policySideNav/directives.js?q=1'></script>
+    <script src="app/policy/templates/policySideNav/directives.js?q=1"></script>
+    <script src="app/policy/templates/policyDefinition/templates/cdr/directives.js?q=1"></script>
+    <script src="app/policy/templates/policyDefinition/templates/settings/directives.js?q=1"></script>
+    <script src='app/reports/reports.js?q=1'></script>
+    <script src='app/reports/sanitization/directives.js?q=1'></script>
+    <script src="app/reports/sanitization/sanitization.js?q=1"></script>
+    <script src="app/reports/scanners/controller.js"></script>
+    <script src='app/settings/settings.js?q=1'></script>
+    <script src="JS/libraries/checklist-model.js?q=1"></script>
+    <script src="app/reports/telerik_reports/tr.js?q=1"></script>
+    <script src="app/reports/system_events/se.js?q=1"></script>
+    <script src="app/reports/system_events/directives.js?q=1"></script>
+    <script src="app/reports/jobs/jobs.js?q=1"></script>
+    <script src="app/reports/jobs/directives.js?q=1"></script>
+    <script src="app/reports/email/email.js?q=1"></script>
+    <!-- load this one for data table -->
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js?q=1"></script>
+    <!--Reports JS-->
+    <script src="ReportViewer/js/kendo.subset.2015.3.930.min.js?q=1"></script>
+    <script src="ReportViewer/js/telerikReportViewer-10.2.16.1025.js?q=1"></script>
+    <script src="JS/customServices/no-caching.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/0.1.0/ng-google-chart.min.js?q=1" type="text/javascript"></script>
+    <script src="JS/customServices/facet-formatting.js?q=1"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.10/angular-cookies.js"></script>
+</head>
+
+<body ng-app="resec" ng-cloak>
+    <div data-ui-view class="animated fadeIn"></div>
+</body>
+
+</html>

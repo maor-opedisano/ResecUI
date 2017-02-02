@@ -1,0 +1,38 @@
+#DirWatcherTable {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.input-source {
+    border-top: solid 0px !important;
+    border-bottom: solid 2px #2979FF !important;
+    border-left: solid 0px !important;
+    border-right: solid 0px !important;
+    width: 100% !important;
+}
+
+.output-source {
+    border-top: solid 0px !important;
+    border-bottom: solid 2px #2979FF !important;
+    border-left: solid 0px !important;
+    border-right: solid 0px !important;
+    width: 100% !important;
+}
+
+.input-source:focus {
+    border-bottom: solid 2px #C51162 !important;
+}
+
+.output-source:focus {
+    border-bottom: solid 2px #C51162 !important;
+}
+
+.not-editable {
+    pointer-events: none;
+}
+
+.save-smb-button{
+    background-color : #2979FF !important;
+    font-weight: 700; 
+    color: white;
+}
