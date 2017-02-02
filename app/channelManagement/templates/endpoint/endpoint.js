@@ -1,5 +1,5 @@
-app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$state",
-    function(C2CData, channelData, $scope, $mdDialog, $state) {
+app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$state", "FacetFormatter",
+    function(C2CData, channelData, $scope, $mdDialog, $state, FacetFormatter) {
 
         var self = this;
         self.timeReferences = ['Real Time', '1 hour', '1 week', '2 weeks', '3 weeks', '1 month'];
@@ -115,12 +115,16 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
             channelData.get_channel(newVal).then(function(answer) {
                 self.channel_data = answer.data
                 var channelInfo = answer.data.ChannelInfo
+                self.ServerFacetTemplates = {}
                 self.TemplateSwitcher(answer.data.AgentType, channelInfo);
                 self.ChannelConfiguration = channelInfo.ChannelConfiguration;
                 self.generalInformations = channelInfo.GeneralInformations;
                 channelData.ChannelFacets().then(function(answer) {
-                    self.whoData = answer.data;
-                    self.InitFacets(self.whoData)
+                    self.ServerFacetTemplates = answer.data;
+                    self.whoData = FacetFormatter.FormatFacetTemplates(answer.data);
+
+                    var facetsVm = FacetFormatter.InitFacets(self.whoData, self.ChannelFacets);
+                    self.ChannelFacets = facetsVm.EntityFacets
                 })
 
             })
@@ -221,7 +225,7 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
 
         self.FormatChannelFacetsBeforePOST = function() {
 
-            self.FacetsToPost = []
+            self.FacetsToPost = FacetFormatter.FormatForPOST(self, "ChannelFacets", "ServerFacetTemplates");
             var ChannelUsageObject = {}
             var ChannelSettingsObject = {}
 
