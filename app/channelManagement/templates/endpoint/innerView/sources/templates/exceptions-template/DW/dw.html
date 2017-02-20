@@ -17,9 +17,9 @@
         <th>Output Folder</th>
         <th>Rejected Folder</th>
         <th>Temporary Folder</th>
+        <th>Relay Name</th>
         <th>Include Folder Mask</th>
         <th>Exclude Folder Mask</th>
-
     </thead>
     <tbody>
         <tr ng-repeat="DW in ctrl.DW.Sources track by $index">
@@ -31,7 +31,7 @@
             <td>
                 <input class="input-source" placeholder="Input Folder" ng-model="DW.InputFolder" />
             </td>
-             <td>
+            <td>
                 <input class="input-source" placeholder="Output Folder" ng-model="DW.OutputFolder" />
             </td>
             <td>
@@ -39,6 +39,9 @@
             </td>
             <td>
                 <input class="input-source" placeholder="Temporary Folder" ng-model="DW.TemporaryFolder" />
+            </td>
+             <td>
+                <input class="input-source" placeholder="Relay Name" ng-model="DW.RelayName" />
             </td>
             <td>
                 <input class="input-source" placeholder="Include Folder Mask" ng-model="DW.IncludeFolderMask" />

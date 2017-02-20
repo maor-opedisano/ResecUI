@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="app/policy/style.css" />
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
+
+
 <div layout='column' layout-gt-sm='column' id='policyMainContent' ng-cloak layout-fill>
     <md-content layout='row' flex>
-        <policy-sidenav layout-fill></policy-sidenav>
-        <md-content layout-fill layout='column' id="policyNotScrollable" ng-if="!ctrl.NoPolicyExists">
+        <policy-sidenav layout-fill flex="15"></policy-sidenav>
+        <md-content layout-fill layout='column' id="policyNotScrollable" ng-if="!ctrl.NoPolicyExists" flex = "80">
             <policy-graph-toolbar></policy-graph-toolbar>
             <div class="policyInnerWrapper">
                 <nav class="md-whiteframe-8dp" id="policyMainNav">
@@ -14,7 +17,7 @@
                 <md-content data-ui-view ng-cloak id="policyDefintionView"></md-content>
             </div>
         </md-content>
-        <md-content ng-if="ctrl.NoPolicyExists" layout="row" layout-align="center center" flex="100">
+        <md-content ng-if="ctrl.NoPolicyExists" layout="row" layout-align="center center" flex>
             <h2>No Policy currently exist yet, Please create a new policy by clicking on "New Policy" on the sidenav</h2>
         </md-content>
     </md-content>

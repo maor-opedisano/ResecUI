@@ -12,24 +12,13 @@ app.directive("saveInfoGetId", function (channelData, $state, $stateParams) {
                     }
                 }
                 scope.ctrl.gen_info = NewChannelParam
-
-                channelData.createChannel(NewChannelParam)
-
-                .then(function (answer) {
-
-
+                channelData.createChannel(NewChannelParam).then(function (answer) {
                         $state.go('app.channelManagement.endpoint.sources', {
-
                             ChannelId: answer.data.Id
-
                         }, {
-
                             reload: true
-
                         });
-
-                        console.log("transitioned")
-
+                        scope.ctrl.LoadSidenav();
                     },
 
                     function (error) {
@@ -37,6 +26,7 @@ app.directive("saveInfoGetId", function (channelData, $state, $stateParams) {
                         alert("there was an error : " + error.data.Message)
 
                     })
+            
             })
         }
     }

@@ -2,7 +2,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+   
     <!-- Angular Material style sheet -->
     <!--<link rel="stylesheet" href="CSS/material.css">-->
     <link href="bower_components/angular-material/angular-material.min.css" rel='stylesheet' type='text/css' />
@@ -31,7 +32,6 @@
         delete window.exports;
         delete window.module;
     </script>-->
-    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
     <script type="text/javascript" src="JS/libraries/jquery.min.js?q=1"></script>
     <script src="JS/libraries/jquery-ui.js?q=1"></script>
     <script type='text/javascript' src='JS/libraries/bootstrap.min.js?q=1'></script>
@@ -50,6 +50,9 @@
     <script src='JS/libraries/angular-chart.js?q=1'></script>
     <script src='JS/libraries/vertilizer.js?q=1'></script>
     <script src="JS/libraries/material-icons.min.js?q=1"></script>
+
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+
     <!-- <script src="bower_components/angular-translate/angular-translate.min.js?q=1"></script>
     <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js?q=1"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js?q=1"></script>-->
@@ -58,12 +61,13 @@
     <script src="bower_components/json-formatter/dist/json-formatter.min.js?q=1"></script>
     <script src="bower_components/ng-ip-address/src/ngIpAddress.js?q=1"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.min.js?q=1"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-indeterminate/dist/indeterminate.js?q=1"></script>
     <script type="text/javascript" src="JS/libraries/chart-loader.js?q=1"></script>
     <!--<script type="text/javascript" src="bower_components/underscore/underscore-min.js?q=1"></script>-->
     <!-- bootstrap angular ui -->
     <script src="JS/libraries/bootstrap-ui.min.js?q=1"></script>
     <!-- Important Note: Angular Material Library rc1 version works well with list, rc2 is very unstable, the verison called here is V1.1RC01 
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js?q=1"></script>-->
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js?q=1"></script>-->
     <!-- Bootstrap and JQuery -->
     <!-- Local Libraries -->
     <script src='JS/module.js?q=1'></script>
@@ -85,6 +89,7 @@
     <script src="app/channelManagement/templates/endpoint/innerView/sources/templates/exceptions-template/DW/directive.js?q=1"></script>
     <script src="app/channelManagement/templates/endpoint/innerView/sources/templates/exceptions-template/templates.directives.js"></script>
     <script src='app/channelManagement/templates/endpoint/innerView/settings/directives.js?q=1'></script>
+    <script src="app/policy/templates/policyDefinition/templates/settings/email.controller.js?q=1"></script>
     <script src='app/channelManagement/templates/newChannel/common/controller.js?q=1'></script>
     <script src='app/channelManagement/templates/newChannel/directives.js?q=1'></script>
     <script src="app/channelManagement/templates/endpoint/innerView/who/directives.js?q=1"></script>
@@ -105,7 +110,6 @@
     <script src='app/policy/templates/policyDefinition/templates/detection/directives.js?q=1'></script>
     <script src='app/policy/templates/policyDefinition/templates/fileType/directives.js?q=1'></script>
     <script src='app/policy/templates/policySideNav/directives.js?q=1'></script>
-    <script src="app/policy/templates/policySideNav/directives.js?q=1"></script>
     <script src="app/policy/templates/policyDefinition/templates/cdr/directives.js?q=1"></script>
     <script src="app/policy/templates/policyDefinition/templates/settings/directives.js?q=1"></script>
     <script src='app/reports/reports.js?q=1'></script>
@@ -128,10 +132,14 @@
     <script src="JS/customServices/no-caching.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/0.1.0/ng-google-chart.min.js?q=1" type="text/javascript"></script>
     <script src="JS/customServices/facet-formatting.js?q=1"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.10/angular-cookies.js"></script>
+    <script src="JS/libraries/ng-cookies.js"></script>
+    
+   
 </head>
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
 
 <body ng-app="resec" ng-cloak>
+    <div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1"></div>
     <div data-ui-view class="animated fadeIn"></div>
 </body>
 

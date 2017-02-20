@@ -17,9 +17,8 @@ app.directive("initNewPolicyModal", function ($mdDialog) {
             element.bind("click", function () {
                 scope.ctrl.new_policy_title = "";
                 $mdDialog.show({
-                    controller: "policy",
-                    controllerAs: "ctrl",
-                    scope: scope.$new(),
+                
+                    scope: scope,
                     clickOutsideToClose: true,
                     templateUrl: "app/policy/templates/policySideNav/new_policy_modal.tmpl.html",
                     parent: angular.element(document).find("body")
@@ -41,25 +40,22 @@ app.directive("cancelPolicyCreation", function ($mdDialog) {
     })
     //create policy call from controller
 
-app.directive("renamePolicy", function () {
+app.directive("renamePolicy", function (policyData) {
     return {
         restrict: "A",
-
         link: function (scope, element, attrs) {
-            element.bind("click", function () {
+            element.click(function () {
                 var self = $(this)
-                var index = Boolean(self.attr("index"))
-                var PolicyName = self.siblings(".policyName")
-                var PolicyId = self.attr("policy-id")
-                if (index = false) {
-                    index = true;
-                    PolicyName.addClass("name-in-edition")
-                } else {
-                    PolicyName.removeClass("name-in-edition")
-                    index = false;
-                    console.log(index)
-
-                }
+                var p1 = self.parents();
+                var name = p1.closest("md-list-item").find(".policyName").html()
+                var id = self.attr("policy-id")
+                console.log("i")
+                policyData.update_policy_name(id, name).then(function (success) {
+                    scope.ctrl.show_success_dialog("Policy name successfully saved");
+                    scope.ctrl.policy.Name = name;
+                }, function (error) {
+                    scope.ctrl.show_error_dialog("The new name for this policy could not be saved", error.data.Message)
+                })
             })
         }
     }
@@ -68,48 +64,38 @@ app.directive("renamePolicy", function () {
 
 
 
-app.directive("toggleNewPolicyEditableMode", function () {
-    return {
-        restrict: "A",
-        link: function (scope, element, attrs) {
-            element.bind("click", function () {
-                var icon = $(this).find("md-icon")
-                var policyName = $(".newPolicyName")
-                if (!scope.ctrl.isEditable) {
-                    icon.html("done");
-                    policyName.css("color", "orange");
-                    policyName.addClass("animated flash")
-                    scope.ctrl.isEditable = true;
-                } else {
-                    icon.html("edit");
-                    policyName.removeClass("animated flash")
-                    policyName.css("color", "white")
-                    scope.ctrl.isEditable = false;
-                }
-            })
-
-        }
-    }
-})
-
-app.directive("deletePolicy", ["policyData", "$timeout", function (policyData, $timeout) {
+app.directive("deletePolicy", ["policyData", "$q", "$mdDialog", function (policyData, $q, $mdDialog) {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
             element.bind("click", function () {
                 var self = $(this);
-                var cell = self.parents("md-list-item");
-                var id = parseInt(cell.attr("policy-id"));
-                cell.addClass("animated bounceOutRight");
-                $timeout(function () {
-                    cell.addClass("hidden")
-                }, 500)
-                policyData.deletePolicy(id)
-                scope.$apply()
+                var cell = self.parents().closest(".policyItem");
+                var PolicyName = self.attr("policy-name");
+                var id = parseInt(self.attr("policy-id"));
+
+                var confirm = $mdDialog.confirm()
+                    .title('You are about to delete a channel')
+                    .textContent('You are about to delete the Policy ' + PolicyName)
+                    .ariaLabel('Delete Policy')
+                    .ok('Yes, delete this policy')
+                    .cancel('Cancel');
+                $mdDialog.show(confirm).then(function () {
+                    policyData.deletePolicy(id).then(success => {
+                        console.log(success)
+                        console.log("policy successfuly delete " + id)
+                        scope.ctrl.RefreshSidenav();
+                    }, error => {
+                        scope.ctrl.show_error_dialog("This policy could not be delete ", error.data.Message)
+                    })
+                })
             })
         }
     }
 }])
+
+
+
 
 app.directive("initiateApiCallWithId", ["policyData", "$mdSidenav", function (policyData, $mdSidenav) {
     return {
@@ -124,18 +110,3 @@ app.directive("initiateApiCallWithId", ["policyData", "$mdSidenav", function (po
         }
     }
 }])
-
-app.directive("editPolicySidenav", function () {
-    return {
-        restrict: "A",
-        link: function (scope, element, attrs) {
-            element.bind("click", function () {
-                if (!scope.ctrl.sidenav_edit_mode) {
-                    scope.ctrl.sidenav_edit_mode = true
-                } else {
-                    scope.ctrl.sidenav_edit_mode = false
-                }
-            })
-        }
-    }
-})

@@ -1,4 +1,9 @@
 <div ng-http-loader methods="['GET']" template="app/common/templates/loader.html" ttl="1"></div>
+
+
+
+<h1>{{ctrl.srv}}</h1>
+
 <div layout="column" flex layout-fill id="loginBody" role="main" ng-init="ctrl.CheckIfCookies()">
     <md-content layout="column" id="content">
         <md-icon md-svg-src='login/resecLogo.svg' class='md-150'></md-icon>
@@ -7,7 +12,7 @@
                 <md-content layout='column' layout-align='center stretch' layout-margin>
                     <md-input-container>
                         <label>Server</label>
-                        <input ng-model="ctrl.serverName" id="ServerName" ng-keypress="ctrl.LogUserInOnEnter($event)">
+                        <input  ng-model="ctrl.serverName" id="ServerName" ng-keypress="ctrl.LogUserInOnEnter($event)">
                     </md-input-container>
                     <md-input-container>
                         <label>User</label>
@@ -23,6 +28,7 @@
                             <md-checkbox id="remember-me" aria-label="remember me" ng-model="ctrl.IsRememberMe"></md-checkbox>
                             REMEMBER ME
                         </div>
+                        <button ng-click="ctrl.ChangeToken()">change token</button>
                     </md-input-container>
                 </md-content>
             </md-whiteframe>
@@ -30,3 +36,4 @@
     </md-content>
     <md-content class="error_message animated fadeIn md-title" ng-if="!ctrl.is_login_nahon" layout-align="center center" layout="row">Please Check Your Credentials</md-content>
 </div>
+

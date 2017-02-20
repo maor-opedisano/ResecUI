@@ -79,28 +79,3 @@ app.directive("blockedProcessedToggler", function () {
 })
 
 
-app.directive('stringToBoolean', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, element, attrs, ngModel) {
-            ngModel.$parsers.push(function (value) {
-                var bool;
-                for (i in value) {
-                    console.log(value[i])
-                    bool = value[i] === "True";
-                    value = bool
-                    return value
-                }
-            });
-            ngModel.$formatters.push(function (value) {
-                var fbool;
-                for (i in value) {
-                    console.log(value[i])
-                    fbool = value[i] === "True";
-                    value = fbool
-                    return value
-                }
-            });
-        }
-    };
-});

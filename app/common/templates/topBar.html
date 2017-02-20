@@ -4,9 +4,8 @@
         <a ui-sref="app.dashboard" layout="row" layout-align="center center">
             <md-icon md-svg-src="IMG/icons/resecLogo.svg" class="main-logo"></md-icon>
         </a>
-        <!--<a class="parent_url" ui-sref="{{$state.current.parentUrl}}">
-           {{$state.current.parentName}}
-        </a>-->&nbsp{{$state.current.displayName}}
+        {{ctrl.serverName | uppercase}} > 
+        &nbsp{{$state.current.displayName}}
     </md-content>
     <div layout="row" layout-align="space-between center">
         <md-input-container class="noMarginInput" ng-hide=" $state.current.classSelector === 'cluster'">
@@ -18,7 +17,7 @@
                 <md-option><small>1 Month</small></md-option>
             </md-select>
         </md-input-container>
-        <p>{{ctrl.Countdown}}</p>
+        
         <md-button class="md-icon-button md-primary" refresh>
             <md-icon>refresh</md-icon>
         </md-button>

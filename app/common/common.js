@@ -6,5 +6,6 @@ app.controller('common', function ($rootScope, $state, $stateParams) {
 	self.$state = $state
 	self.token = localStorage.getItem("token");
 	self.serverName = localStorage.getItem("serverName")
+
 })
 

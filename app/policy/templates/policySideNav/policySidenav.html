@@ -1,42 +1,60 @@
+
+
 <md-sidenav layout-padding md-component-id='policySidenav' id='policySidenav' md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left"
     md-whiteframe="6" flex="33">
     <link rel="stylesheet" href="app/policy/templates/policySideNav/style.css" />
     <div layout='row' layout-align='space-between center' id="policySidenavTop">
-        <h4 flex='50' class='white'><strong>Available Policies</strong></h4>
-        <div flex layout='row'>
-            <md-button id="new-channel-button" init-new-policy-modal md-whiteframe="4">
-                ADD POLICY
-            </md-button>
-            <md-button class="md-icon-button" ng-click="ctrl.sidenav_edit_mode =! ctrl.sidenav_edit_mode">
-                <md-icon style="color: white">edit</md-icon>
-            </md-button>
-        </div>
+        <h4 flex='80' class='white'><strong>Available Policies</strong></h4>
+        <md-button id="new-channel-button" init-new-policy-modal md-whiteframe="4" class="md-icon-button">
+            <md-tooltip>Create a new policy</md-tooltip>
+            <md-icon class="white-icon">playlist_add</md-icon>
+        </md-button>
     </div>
     <input class="searchPolicies" placeholder="search policies" ng-model="PolicyName" />
     <md-list layout-padding id="policyListHolder">
-        <md-list-item ng-repeat="policy in ctrl.sideNavList | filter: PolicyName " policy-id={{policy.PolicyId}} layout-padding class="policyItem"
-            policy-list-hover layout="column" layout-align="center start" initiate-api-call-with-id ng-class="{'selectedPolicy': ctrl.policyId === policy.PolicyId}">
+        <md-list-item ng-repeat="policy in ctrl.sideNavList | filter: PolicyName track by policy.PolicyId" policy-id={{policy.PolicyId}}
+            layout-padding class="policyItem" policy-list-hover layout="column" layout-align="center start" initiate-api-call-with-id
+            ng-class="{'selectedPolicy': ctrl.policyId === policy.PolicyId}">
             <div layout="row" layout-align="space-between start" style="width: 100%" ng-init="policy[$index].isEditable = false">
-                <p contenteditable="{{policy[$index].isEditable}}" flex="95" class="md-subhead white bold policyName">{{policy.PolicyName}}</p>
-                <md-button class="fullWidthButton noMarginTop" delete-policy ng-show="ctrl.sidenav_edit_mode">
-                    <md-icon flex class="pinkIcon material-icons">close</md-icon>
-                </md-button>
-                <md-button class="fullWidthButton noMarginTop" ng-show="ctrl.sidenav_edit_mode" rename-policy index = "{{policy[$index].isEditable}}" policy-id="{{policy.PolicyId}}">
-                    <md-icon class="material-icons editPolicyName greenIcon">title</md-icon>
-                </md-button>
-            </div>
-            <div layout="row" layout-align="space-between start">
-                <div layout="row" flex="45" layout-align="start start">
-                    <md-icon class="lightPurple marginRight1em">insert_drive_file</md-icon>
-                    <p class="md-subhead white noMarginBottom">{{policy.TotalFiles}}</p>
+                <div layout="column" flex="70">
+                    <p contenteditable="{{policy[$index].isEditable}}" class="md-subhead white bold policyName" ng-class="{'name-in-edition': policy[$index].isEditable }">{{policy.PolicyName}}</p>
+                    <div layout="row" layout-align="space-between start">
+                        <div layout="row" layout-align="start start">
+                            <md-icon class="white-icon marginRight1em">insert_drive_file</md-icon>
+                            <p class="md-subhead white noMarginBottom">{{policy.TotalFiles}}</p>
+                        </div>
+                        <div layout="row" flex class="psGpeHolder">
+                            <md-icon class="white-icon marginRight1em">group</md-icon>
+                            <p class="md-subhead white noMarginBottom">{{policy.TotalUsers}}</p>
+                        </div>
+                    </div>
+                    <div layout-margin layout-wrap layout="row" layout-align="start center" class="noMarginLeft">
+                        <p class="customChips" ng-repeat="channel in policy.ChannelNames" md-whiteframe="4">{{channel}}</p>
+                    </div>
                 </div>
-                <div layout="row" flex class="psGpeHolder">
-                    <md-icon class="lightPurple marginRight1em">group</md-icon>
-                    <p class="md-subhead white noMarginBottom">{{policy.TotalUsers}}</p>
+                <div flex="30" layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" ng-if="policy[$index].isEditable" policy-id="{{policy.PolicyId}}" ng-click="policy[$index].isEditable = false"
+                        rename-policy>
+                        <md-icon class="red-icon">done</md-icon>
+                    </md-button>
+                    <md-menu md-offset="0 -7" md-position-mode="target-right target">
+                        <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                            <md-icon md-menu-origin class="green-icon">more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="2">
+                            <md-menu-item>
+                                <md-button ng-click="policy[$index].isEditable = true">
+                                    <span md-menu-align-target>Rename Policy</span>
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button delete-policy policy-id="{{policy.PolicyId}}" policy-name="{{policy.PolicyName}}">
+                                    <span md-menu-align-target>Delete Policy</span>
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
                 </div>
-            </div>
-            <div layout-margin layout-wrap layout="row" layout-align="start center" class="noMarginLeft">
-                <p class="customChips" ng-repeat="channel in policy.ChannelNames" md-whiteframe="4">{{channel}}</p>
             </div>
         </md-list-item>
     </md-list>

@@ -55,3 +55,11 @@
     padding-right: 0px !important;
     margin-right: 0px !important;
 }
+.default-values{
+    color: #0D47A1 !important;
+    font-weight: 700 !important;
+}
+.collapsed-elements{
+
+    width: 100% !important;
+}

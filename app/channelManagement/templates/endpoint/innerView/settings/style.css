@@ -1,7 +1,9 @@
 .settings{
     background-color: white;
     padding-top: 0px !important;
+    border-radius: 4px !important;
 }
+
 .edit-mode-on{
     background-color: #C2185B !important;
     color: white !important;
@@ -9,6 +11,27 @@
 }
 .edit-mode-off{
     background-color: #1A237E !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+.material-input {
+    border: 0px !important;
+    border-bottom: solid 2px #BBDEFB !important;
+    width: 100%;
+}
+.material-input:focus {
+   
+    border-bottom: solid 2px #42A5F5 !important;
+  
+}
+.select{
+    width: 100%;
+    background-color: #2196F3 !important;
+    color: white !important;
+    border: solid 0px !important;
+}
+.settings-toolbar{
+    background-color: #2196F3 !important;
     color: white !important;
     font-weight: 700 !important;
 }

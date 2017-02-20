@@ -1,7 +1,6 @@
+<div ng-http-loader methods="['POST']" template="app/common/templates/loader.html" ttl="1">
+</div>
 <div layout="row" ng-cloak>
     <channel-sidebar></channel-sidebar>
-    <md-content ui-view layout-fill ng-if="!ctrl.NoChannelExists"></md-content>
-    <md-content layout-fill ng-if="ctrl.NoChannelExists" layout="row" layout-align="center center">
-        <h2>No Channel currently exists, please create a new channel by clicking on "Create Channel" on the sidenav</h2>
-    </md-content>
+    <md-content ui-view layout-fill></md-content>
 </div>

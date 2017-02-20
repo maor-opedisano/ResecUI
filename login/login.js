@@ -1,80 +1,68 @@
-app.controller("login", ["$rootScope", "authService", "$state", "$timeout", "HTTPHeaders", "$cookies",
+app.controller("login", ["$rootScope", "authService", "$state", "$window", "HTTPHeaders", "$cookies",
 
-    function ($rootScope, authService, $state, $timeout, HTTPHeaders, $cookies) {
+    function ($rootScope, authService, $state, $window, HTTPHeaders, $cookies) {
 
         var self = this;
 
         self.CheckIfCookies = function () {
-
             var CookieStorage = {
                 servername: $cookies.get('serverName'),
                 username: $cookies.get('UserName'),
                 password: $cookies.get('Password')
-            }
-
-            self.serverName = CookieStorage.servername || "";
-            self.UserName = CookieStorage.UserName || "";
-            self.Password = CookieStorage.Password || "";
-
-            self.IsRememberMe = (CookieStorage.servername !== "" && CookieStorage.UserName !== "" && CookieStorage.Password !== "") ? true : false;
-
-        }
+            };
+           
+        };
 
         self.is_login_nahon = true;
 
-        var token = localStorage.getItem("token")
+        //password = "P04531418";
+        self.srv = localStorage.getItem("serverName");
 
-        var ServerName = localStorage.getItem("serverName")
-            //password = "P04531418";
         self.LogUserInOnEnter = function ($event, $http) {
-
             var keyCode = $event.which || $event.keyCode;
-
             if (keyCode === 13) {
-
-                var serverName = document.getElementById("ServerName").value
-
-                var username = $("#username")
-
-                var password = $("#password")
-
+                var serverName = self.serverName;
+                var username = $("#username");
+                var password = $("#password");
                 if (self.IsRememberMe) {
-
-                    $cookies.put('serverName', self.serverName);
-
+                    $cookies.put('serverName', serverName);
                     $cookies.put('UserName', self.UserName);
-
                     $cookies.put('Password', self.Password);
+                };
+                authService.checkLogin(serverName, self.UserName, self.Password)
+                    .then((header) => {
+                        console.log(header);
+                        $state.go("app.dashboard");
+                    })
+                    .catch((error) => {
+                        self.is_login_nahon = false;
+                    })
+            };
+        };
 
-                }
+        self.requireMatch = false;
 
-                authService.checkLogin(serverName, self.UserName, self.Password).then(function (answer) {
+        self.searchQueries = [];
 
-                    var token = "Bearer " + answer.data.AccessToken
+        self.displayAnswer = function () {
 
-                    localStorage.setItem("serverName", serverName)
+            var answer;
+            self.queryArray = [];
 
-                    localStorage.setItem("token", token)
-
-                    $state.go("app.dashboard")
-
-
-                }, function (error) {
-
-                    self.is_login_nahon = false;
-
-                })
+            for (i in self.searchQueries) {
+                answer = self.searchQueries[i].answer
             }
+            self.queryArray.push(answer)
         }
+
+        self.ChangeToken = () =>{
+            console.log(window.localStorage);
+            console.log($window);
+
+           // localStorage.setItem("serverName", self.serverName);
+        };
     }
 ])
-
-
-app.config(["$httpProvider", function ($httpProvider) {
-
-    $httpProvider.defaults.cache = false
-
-}])
 
 app.run(["$rootScope", "$state", function ($rootScope, $state) {
 

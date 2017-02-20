@@ -8,8 +8,8 @@ app.controller("system_events", function ($scope, system_events_factory) {
   //paging the data 
   $scope.get_data = function () {
     system_events_factory.get_system_events($scope.se_query.PageIndex, $scope.se_query.PageSize, $scope.se_query.order).then(function (answer) {
-      $scope.data = answer.data
-      $scope.total_length = $scope.data.Total
+      $scope.data = answer.data;
+      $scope.total_length = $scope.data.Total;
     })
   }
   $scope.$watchGroup(['se_query.PageIndex', 'se_query.PageSize', 'se_query.order'], function (newValues, oldValues, scope) {
@@ -19,7 +19,7 @@ app.controller("system_events", function ($scope, system_events_factory) {
     $scope.get_data()
   });
   //filter dialog
-  $scope.limitOptions = $scope.limitOptions ? undefined : [10, 25, 50, 100];
+  $scope.limitOptions = $scope.limitOptions || [10, 25, 50, 100];
   $scope.options = {
     rowSelection: true,
     multiSelect: true,

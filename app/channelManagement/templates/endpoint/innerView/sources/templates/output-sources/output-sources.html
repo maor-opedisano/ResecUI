@@ -1,45 +1,19 @@
-
-
-
-<div layout="row" layout-wrap layout-margin  class="whiteBk input_output_list" md-whiteframe="6" layout-align="space-between center">
-    <div  layout="column" layout-align="center center" ng-repeat="x in ctrl.all_inputs" flex="25" ng-class="{input_is_selected: ctrl.OutputConfiguration.SelectedIoList[x.name]}"
+<div layout="row" layout-wrap layout-margin class="whiteBk input_output_list shadow-on-section-hover" md-whiteframe="6" layout-align="space-between center">
+    <div layout="column" layout-align="center center" ng-repeat="x in ctrl.all_inputs" flex="25" ng-class="{input_is_selected: ctrl.OutputConfiguration.SelectedIoList[x.name]}"
         layout-margin select-input class="output_element">
         <md-icon md-svg-src="icons/{{x.icon}}"></md-icon>
         <md-content class="md-subhead strong" _name="{{x.name}}">{{x.name}}</md-content>
     </div>
-    <div  layout="column" layout-align="center center" flex = "25" ng-class="{input_is_selected: ctrl.OutputConfiguration.SelectedIoList[x.name]}"
-        layout-margin select-on-click add-osmb class="output_element">
+    <div layout="column" layout-align="center center" flex="25" ng-class="{SMBSelected: ctrl.NumberOFoSMBs > 0}" layout-margin
+        select-on-click add-osmb class="output_element">
         <md-icon md-svg-src="icons/ncRelay.svg"></md-icon>
-        <md-content class="md-subhead strong" _name="iSMB">SMB</md-content>
+        <md-content class="md-subhead strong" _name="iSMB">
+            <span id="sources-smb-counter" ng-if="ctrl.NumberOFoSMBs > 0">{{ctrl.NumberOFoSMBs}}</span> SMB
+        </md-content>
     </div>
-</div>
-
-
-
-
-<!--
-
-<div layout="row" layout-align="space-between center" layout-padding class="no-padding-right">
-    <div layout-gt-lg="row" layout="column" class="whiteBk input_output_list" md-whiteframe="6">
-        <div layout="row" layout-align="space-between center">
-            <div layout="column" ng-repeat="x in ctrl.iROW_1" layout-margin layout-align="space-between center" select-output 
-            class="output_element" ng-class="{input_is_selected: ctrl.OutputConfiguration.SelectedIoList[x.name]}">
-                <md-icon md-svg-src="icons/{{x.icon}}"></md-icon>
-                <md-content class="md-subhead strong" _name="{{x.name}}">{{x.name}}</md-content>
-            </div>
-        </div>
-        <div layout="row" layout-align="space-between center">
-            <div layout="column" ng-repeat="y in ctrl.iROW_2" layout-margin layout-align="space-between center" 
-            select-output class="output_element" ng-class="{input_is_selected: ctrl.OutputConfiguration.SelectedIoList[y.name]}">
-                <md-icon md-svg-src="icons/{{y.icon}}"></md-icon>
-                <md-content class="md-subhead strong" _name="{{y.name}}">{{y.name}}</md-content>
-            </div>
-            <div layout="column" layout-margin layout-align="space-between center" add-osmb class="output_element">
-                <md-icon md-svg-src="icons/ncRelay.svg"></md-icon>
-                <md-content class="md-subhead strong" _name="iSMB">SMB</md-content>
-            </div>
-        </div>
+    <div flex="25" ng-init="ctrl.NullOptionIsEditable = false"  layout-padding layout="row" layout-align="center center" ng-class="{ 'null-activated': ctrl.NullOptionIsEditable}">
+        <md-icon class="material-icons md-48" ng-click="ctrl.EditNullOption()">do_not_disturb</md-icon>
+        
     </div>
+     
 </div>
-
--->

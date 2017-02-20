@@ -73,3 +73,25 @@
      color: white !important;
      font-weight: 650 !important;
  }
+ 
+ .jt-high {
+     background-color: #2D90EA !important;
+     border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em; 
+ }
+ 
+ .jt-low {
+     background-color: #E15F64;
+     border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em; 
+ }
+ 
+ .jt-many {
+     background-color: #BD9C55 !important;
+    border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em; 
+ }
+

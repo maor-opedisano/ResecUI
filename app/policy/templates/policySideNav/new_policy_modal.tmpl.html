@@ -6,6 +6,6 @@
     </md-input-container>
     <div layout="row" layout-align="space-between start">
         <md-button id="cancel_policy_creation" md-whiteframe="4" cancel-policy-creation>CANCEL</md-button>
-        <md-button id="confirm_policy_creation" md-whiteframe="4" ng-click="ctrl.CreatePolicy()">CREATE POLICY</md-button>
+        <md-button ng-class="{'disabled-button': ctrl.PolicyIsInCreation}" id="confirm_policy_creation" md-whiteframe="4" ng-click="ctrl.CreatePolicy()">CREATE POLICY</md-button>
     </div>
 </md-dialog>

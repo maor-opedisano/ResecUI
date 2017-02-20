@@ -29,15 +29,18 @@ app.directive("closeSystemEventsFilter", function ($mdDialog) {
     }
 })
 
-app.directive("confirmSystemEventsFilter", function (system_events_factory) {
+app.directive("confirmSystemEventsFilter", function (system_events_factory, $mdDialog) {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
             element.click(function () {
                 system_events_factory.get_filter_results(scope.se_query).then(function (answer) {
-                    scope.data = answer.data
+                    console.log(answer)
+                    console.log(scope.se_query)
+                    //scope.data = answer.data
                 }, function (error) {})
                 scope.$apply()
+                $mdDialog.hide();
             })
         }
     }

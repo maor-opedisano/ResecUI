@@ -1,49 +1,80 @@
-app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$state", "FacetFormatter",
-    function(C2CData, channelData, $scope, $mdDialog, $state, FacetFormatter) {
+app.controller("channels", ["channelData", "$scope", "$mdDialog", "$state", "FacetFormatter", "$q",
+    function (channelData, $scope, $mdDialog, $state, FacetFormatter, $q) {
 
         var self = this;
         self.timeReferences = ['Real Time', '1 hour', '1 week', '2 weeks', '3 weeks', '1 month'];
         //setting switcher function to switch templates
         self.TemplateConditions = {};
-        self.TemplateSwitcher = function(ChannelType, channelInfo) {
-            switch (ChannelType) {
-                // endpoint
+        self.TemplateSwitcher = function (ChannelType, channelInfo) {
+                switch (ChannelType) {
+                    // endpoint
 
-                case 2:
-                    self.TemplateConditions.isDirWatcher = false;
-                    self.TemplateConditions.isEndpoint = true;
-                    self.EndpointSourcesAreEditable = false;
-                    self.InputConfiguration = (channelInfo.InputConfiguration == null) ? {} : channelInfo.InputConfiguration;
-                    self.ismbList = (self.InputConfiguration.IoSmbConfiguration == null) ? [] : self.InputConfiguration.IoSmbConfiguration;
-                    self.OutputConfiguration = (channelInfo.OutputConfiguration == null) ? {} : channelInfo.OutputConfiguration;
-                    self.osmbList = (self.OutputConfiguration.IoSmbConfiguration == null) ? [] : self.OutputConfiguration.IoSmbConfiguration;
+                    case 2:
+                        self.TemplateConditions.isDirWatcher = false;
+                        self.TemplateConditions.isEndpoint = true;
+                        self.EndpointSourcesAreEditable = false;
+                        self.TemplateConditions.isAPI = false;
 
-                    console.log("inside switcher")
-                    console.log(ChannelType)
-                    break;
-                    //case is dirwatcher
-                case 3:
-                    self.TemplateConditions.isDirWatcher = true;
-                    self.TemplateConditions.isEndpoint = false;
-                    self.DWSourcesAreEditable = false;
-                    self.DW.Sources = channelInfo.DirWatcherConfigurations || [];
-                    console.log("inside switcher")
-                    console.log(ChannelType)
-                    break;
+                        self.InputConfiguration = channelInfo.InputConfiguration || {};
+                        self.ismbList = self.InputConfiguration.IoSmbConfiguration || [];
+                        self.OutputConfiguration = channelInfo.OutputConfiguration || {};
+                        self.osmbList = self.OutputConfiguration.IoSmbConfiguration || [];
+                        self.NullStoreName = self.OutputConfiguration.NullStoreName ;
+                        self.NumberOFiSMBs = self.ismbList.length || 0;
+                        self.NumberOFoSMBs = self.osmbList.length || 0;
+
+
+                        break;
+
+                    case 1:
+                        self.TemplateConditions.isDirWatcher = false;
+                        self.TemplateConditions.isEndpoint = true;
+                        self.EndpointSourcesAreEditable = false;
+                        self.TemplateConditions.isAPI = false;
+
+                        self.InputConfiguration = channelInfo.InputConfiguration || {};
+                        self.ismbList = self.InputConfiguration.IoSmbConfiguration || [];
+
+                        self.OutputConfiguration = channelInfo.OutputConfiguration || {};
+                        self.osmbList = self.OutputConfiguration.IoSmbConfiguration || [];
+                        self.NullStoreName = self.OutputConfiguration.NullStoreName;
+
+
+                        self.NumberOFiSMBs = self.ismbList.length || 0;
+                        self.NumberOFoSMBs = self.osmbList.length || 0;
+
+
+                        break;
+                        //case is dirwatcher
+                    case 3:
+
+                        self.TemplateConditions.isDirWatcher = true;
+                        self.TemplateConditions.isEndpoint = false;
+                        self.TemplateConditions.isAPI = false;
+                        self.DWSourcesAreEditable = false;
+                        self.DW.Sources = channelInfo.DirWatcherConfigurations || [];
+
+
+                        break;
+                    case 100:
+
+                        self.TemplateConditions.isAPI = true;
+                        self.TemplateConditions.isDirWatcher = false;
+                        self.TemplateConditions.isEndpoint = false;
+
+                }
             }
-        }
-
-        //__________________DirWatchers ______________________
+            //__________________DirWatchers ______________________
 
         self.DW = {
             "Sources": []
         };
         //add an entry to dir watcher sources
-        self.CreateNewDirWatcherSourcesEntry = function() {
+        self.CreateNewDirWatcherSourcesEntry = function () {
             self.DW.Sources.push({})
         };
         //remove entry from dirwatcher sources
-        self.RemoveDirWatcherSourcesEntry = function(index) {
+        self.RemoveDirWatcherSourcesEntry = function (index) {
             self.DW.Sources.splice(index, 1);
         };
 
@@ -56,7 +87,7 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
         //dialogs to show for error and success
         self.HTTP_Dialogs = {
 
-            ShowSuccessDialog: function() {
+            ShowSuccessDialog: function () {
                 $mdDialog.show(
                     $mdDialog.alert()
                     .clickOutsideToClose(true)
@@ -66,7 +97,7 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
                     .ok('Got it!')
                 )
             },
-            ShowErrorDialog: function(ErrorMessage) {
+            ShowErrorDialog: function (ErrorMessage) {
                 $mdDialog.show(
                     $mdDialog.alert()
                     .clickOutsideToClose(true)
@@ -78,109 +109,107 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
             }
         }
 
-        /*--------------------  Init FacetContainer --------------------*/
-
-        self.InitFacets = function(FacetContainer) {
-            angular.forEach(FacetContainer, function(L0Value, L0Key) {
-                //self.ChannelFacets = (self.channel_data.ChannelFacets.hasOwnProperty(L0Key)) ? self.channel_data.ChannelFacets : {[L0Key]: { "Values": {} }};
-                self.ChannelFacets = self.channel_data.ChannelFacets || {}
-                self.ChannelFacets[L0Key] = self.channel_data.ChannelFacets[L0Key] || {
-                    "Values": {}
-                };
-                angular.forEach(FacetContainer[L0Key].Properties, function(value, key) {
-                    if (self.ChannelFacets[L0Key].Values[key] == undefined || self.ChannelFacets[L0Key].Values[key] == "") {
-
-                        if (value.Type !== "FacetPropertyType_SingleChoice" || value.Type !== "FacetPropertyType_MultiChoice") {
-
-                            self.ChannelFacets[L0Key].Values[key] = value.DefaultValue
-
-
-                        } else {
-                            var arr = [];
-                            angular.forEach(value.DefaultValue, function(v, k) {
-                                arr.push(v)
-                            }, arr)
-                            self.ChannelFacets[L0Key].Values[key] = arr
-                        }
-                    } else {
-                        self.ChannelFacets[L0Key].Values[key] = self.ChannelFacets[L0Key].Values[key].split("|")
-                    }
-                })
-            })
-        }
-
         /*--------------------  Watching for changes in channel ID --------------------*/
+        if (!self.NoChannelExists) {
+            self.UpdateChannelData = function (newVal) {
+                channelData.get_channel(newVal).then(answer => {
+                    var deferred = $q.defer();
+                    var $q2 = channelData.ChannelFacets();
 
-        self.UpdateChannelData = function(newVal) {
-            channelData.get_channel(newVal).then(function(answer) {
-                self.channel_data = answer.data
-                var channelInfo = answer.data.ChannelInfo
-                self.ServerFacetTemplates = {}
-                self.TemplateSwitcher(answer.data.AgentType, channelInfo);
-                self.ChannelConfiguration = channelInfo.ChannelConfiguration;
-                self.generalInformations = channelInfo.GeneralInformations;
-                channelData.ChannelFacets().then(function(answer) {
-                    self.ServerFacetTemplates = answer.data;
-                    self.whoData = FacetFormatter.FormatFacetTemplates(answer.data);
-
-                    var facetsVm = FacetFormatter.InitFacets(self.whoData, self.ChannelFacets);
-                    self.ChannelFacets = facetsVm.EntityFacets
+                    $q.all({
+                        $q2
+                    }).then(data => {
+                        self.channel_data = answer.data;
+                        self.ChannelFacets = (jQuery.isEmptyObject(self.channel_data.ChannelFacets)) ? {} : self.channel_data.ChannelFacets;
+                        var ChannelInfo = self.channel_data.ChannelInfo;
+                        self.ServerFacetTemplates = {};
+                        var AgentType = self.channel_data.AgentType;
+                        self.TemplateSwitcher(AgentType, ChannelInfo);
+                        self.ChannelConfiguration = ChannelInfo.ChannelConfiguration;
+                        self.generalInformations = ChannelInfo.GeneralInformations;
+                        self.ServerFacetTemplates = data.$q2.data;
+                        self.whoData = FacetFormatter.FormatFacetTemplates(self.ServerFacetTemplates);
+                        var facetsVm = FacetFormatter.InitFacets(self.whoData, self.ChannelFacets);
+                        deferred.resolve(facetsVm)
+                    });
+                    return deferred.promise;
+                }).then(res => {
+                    self.ChannelFacets = res.EntityFacets
                 })
-
-            })
-        }
-        $scope.$watch(angular.bind(this, function() {
+            }
+        };
+        $scope.$watch(angular.bind(this, function () {
             return this.rootId;
-        }), function(newValue) {
+        }), function (newValue) {
             self.UpdateChannelData(newValue)
-            console.log("new id for channel from $watch " + newValue)
         });
         //default view for dashboard is blocked
         self.isBlocked = true;
-        channelData.getChannelDashboard(self.rootId).then(function(answer1) {
+        channelData.getChannelDashboard(self.rootId).then(function (answer1) {
             self.channelDashboard = answer1.data
         })
+
 
         /*--------------------  Channel Input and Output --------------------*/
 
         self.are_outputs_and_outputs_editable = false;
-        channelData.get_input_output_list().then(function(answer) {
+        channelData.get_input_output_list().then(function (answer) {
             self.all_inputs = answer.data[0].inputs
             self.is_input_selected = false;
         })
 
-        self.DataUnits = ["KB", "MB", "GB", "TB"]
+        self.EditNullOption = () => {
+            self.NullOptionIsEditable = (self.NullOptionIsEditable) ? false : true;
+        };
+
+        self.DataUnits = ["KB", "MB", "GB", "TB"];
         self.FolderPermissions = ["Read", "Write", "Read & Write"]
 
-        self.addISMB = function() {
+        self.addISMB = function () {
             var iSMB = {}
             self.ismbList.push(iSMB)
+            self.NumberOFiSMBs++;
         }
-        self.addOSMB = function() {
+        self.addOSMB = function () {
             var oSMB = {}
-            self.osmbList.push(oSMB)
+            self.osmbList.push(oSMB);
+            self.NumberOFoSMBs++;
         }
 
-        self.deleteISMB = function(ISMB) {
+        self.deleteISMB = function (ISMB) {
             var index = self.ismbList.indexOf(ISMB)
             self.ismbList.splice(index, 1);
+            self.NumberOFiSMBs--;
         }
-        self.deleteOSMB = function(OSMB) {
+        self.deleteOSMB = function (OSMB) {
             var index = self.osmbList.indexOf(OSMB)
             self.osmbList.splice(index, 1);
+            self.NumberOFoSMBs--;
         }
+
+
         self.PolicyFacets = {}
 
         /*--------------------  who is using this channel --------------------*/
 
         self.is_who_screen_editable = false;
 
+        self.AddIPToChannel = (IP) => {
+            var IpArray = self.ChannelFacets['Channel Usage Settings'].Values["StrPropType_ChannelIpsSelection"];
+            var IsValidIp = (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(IP)) ? true : false;
+            if (!IpArray.includes(IP) && IsValidIp) {
+                IpArray.push(IP);
+            } else {
+                alert("This IP Adress is not valid or may already be used in this Channel");
+            }
+        }
+
         /*--------------------  New Channel --------------------*/
 
         self.ChannelCreationHasRequiredFields = false;
         self.useAsRelay = false;
         self.channel = {};
-        channelData.getIcons().then(function(response) {
+        channelData.getIcons().then(function (response) {
             self.channelIcons = response.data
             self.ncTypeWidth = (100 / self.channelIcons.length);
         })
@@ -189,20 +218,18 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
 
         self.channel_list = []
         self.is_edit_mode_on = false;
-        self.LoadSidenav = function() {
-            channelData.getchannelList().then(function(answer) {
+        self.LoadSidenav = function () {
+            channelData.getchannelList().then(function (answer) {
                 self.menuItems = answer.data;
                 if (self.menuItems.length > 0) {
                     self.NoChannelExists = false;
                     //retrieving the first ID of the list if not already defined
                     self.rootId = $state.params.ChannelId || self.menuItems[0].Id
                     var ChannelType = self.menuItems[0].AgentType
-                    console.log(ChannelType)
                     for (i = 0; i < self.menuItems.length; i++) {
                         self.channel_list.push(self.menuItems[i])
                     }
-                    //self.TemplateSwitcher(self.channel_list[0].AgentType)
-
+                    //self.TemplateSwitcher(self.channel_list[0].AgentType);
                 } else {
                     self.NoChannelExists = true;
                 }
@@ -210,9 +237,8 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
             })
         }
         self.LoadSidenav()
-        console.log(self.channel_list)
 
-        self.onDropComplete = function(index, obj, evt) {
+        self.onDropComplete = function (index, obj, evt) {
                 var otherObj = self.channel_list[index];
                 var otherIndex = self.channel_list.indexOf(obj);
                 self.channel_list[index] = obj;
@@ -223,56 +249,28 @@ app.controller("channels", ["C2CData", "channelData", "$scope", "$mdDialog", "$s
 
         /*-------------------- Formatting facets before POST ----------------------*/
 
-        self.FormatChannelFacetsBeforePOST = function() {
+        self.FormatChannelFacetsBeforePOST = function () {
+            var Facets2POST = FacetFormatter.FormatForPOST(self, "ChannelFacets", "ServerFacetTemplates");
+            return Facets2POST;
+        };
 
-            self.FacetsToPost = FacetFormatter.FormatForPOST(self, "ChannelFacets", "ServerFacetTemplates");
-            var ChannelUsageObject = {}
-            var ChannelSettingsObject = {}
-
-            angular.forEach(self.ChannelFacets, function(L1Value, L1Key) {
-                var facet = { Description: "", Values: {} };
-                //L1Key = Channel Usage Settings || Agent Settings
-                facet.Description = L1Key;
-                angular.forEach(L1Value.Values, function(L2Value, L2Key) {
-
-                        if (!Array.isArray(L2Value)) {
-                            //L2Key === "StrPropType_ChannelPolicyToUse" || L2Key === "StrPropType_DetailsMessage"
-                            facet.Values[L2Key] = L2Value;
-                            //                        (L1Key === "Channel Usage Settings") ? ChannelUsageObject[L2Key] = L2Value: ChannelSettingsObject[L2Key] = L2Value
-
-                        } else {
-                            var str = "";
-                            angular.forEach(L2Value, function(L3Value, L3Key) {
-                                str += L3Value + "|";
-                            })
-                            str = str.slice(0, str.lastIndexOf("|"));
-                            //(L1Key === "Channel Usage Settings") ? ChannelUsageObject[L2Key] = str: ChannelSettingsObject[L2Key] = str
-                            facet.Values[L2Key] = str;
-
-                            //L1object[L2Key] = str
-                        }
-                    })
-                    /*self.FacetsToPost[0] = {
-                        "Description": "Channel Usage Settings",
-                        "Values": ChannelUsageObject
-                    }
-                    self.FacetsToPost[1] = {
-                        "Description": "Agent Settings",
-                        "Values": ChannelSettingsObject
-                    }*/
-                self.FacetsToPost.push(facet)
-            })
-            console.log(self.FacetsToPost)
-        }
-        self.ToBoolean = function(value) {
+        self.ToBoolean = function (value) {
             var bool;
             for (i in value) {
-                console.log(value[i])
                 bool = value[i] === "True";
             }
-            console.log(bool)
             return bool
-        }
-
+        };
     }
 ])
+
+
+app.filter("ReturnPolicyName", () => {
+    return (Policy, DefaultKey) => {
+        for (i in Policy) {
+            if (Policy[i].Key === DefaultKey) {
+                return Policy[i].Value;
+            }
+        }
+    }
+})

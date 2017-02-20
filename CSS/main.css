@@ -1,12 +1,21 @@
 
 /*deleting default ugly blue contouring on buttons, inputs ...*/
-
+.shadow-on-hover:hover {
+  box-shadow: 0 14px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.18);
+}
+.shadow-on-section-hover:hover {
+  box-shadow: 0 14px 26px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+.not-editable{
+    pointer-events: none !important;
 }
 
 .button-strong{
@@ -44,13 +53,13 @@ md-switch.md-default-theme.md-checked .md-ink-ripple, md-switch.md-checked .md-i
 md-switch.md-default-theme ._md-bar, md-switch ._md-bar{
     background-color: #E91E63;
 }
-md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple{
+/*md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple{
     background-color: #64D3CC !important;
 }
 
 md-checkbox.md-default-theme.md-checked ._md-icon, md-checkbox.md-checked ._md-icon{
     background-color: #64D3CC !important;
-}
+}*/
 
 md-checkbox.md-default-theme.md-checked ._md-icon:after, md-checkbox.md-checked ._md-icon:after{
     border-color: white !important;
@@ -857,11 +866,9 @@ policy-graph-toolbar {
     background-color: #0D0F47;
     margin-top: 0.7em;
     padding-right: 0.7em;*/
-    border-radius: 10px;
     background-color: transparent;
     margin-top: 2em;
     margin-bottom: 2em;
-    border: solid 2px #2196F3 !important;
     color: white;
     width: 93%;
 }

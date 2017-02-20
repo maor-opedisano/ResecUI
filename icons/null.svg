@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>1486918039_Cancel_close_delete_exit_remove_x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="7.421875e-07%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#A364AB" offset="0%"></stop>
+            <stop stop-color="#8C3D96" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-9.14062487e-07%" y1="49.9999964%" x2="100%" y2="49.9999964%" id="linearGradient-2">
+            <stop stop-color="#8C3D96" offset="0%"></stop>
+            <stop stop-color="#A364AB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1486918039_Cancel_close_delete_exit_remove_x">
+            <g id="Layer_1">
+                <g id="Group">
+                    <g>
+                        <circle id="Oval" fill="url(#linearGradient-1)" cx="32" cy="32" r="32"></circle>
+                        <path d="M32,58.6667328 C17.2960663,58.6667328 5.33333397,46.7039986 5.33333397,32.0000648 C5.33333397,17.2961998 17.2960663,5.33340072 32,5.33340072 C46.7045326,5.33340072 58.6666679,17.2962007 58.6666679,32.0000648 C58.6666679,46.7039986 46.7045326,58.6667328 32,58.6667328 L32,58.6667328 Z" id="Shape" fill="url(#linearGradient-2)"></path>
+                    </g>
+                    <path d="M39.21595,18 L26.7900009,18 L18,26.7839336 L18,39.2099991 L26.7900009,48 L39.21595,48 L48,39.2099991 L48,26.7839336 L39.21595,18 L39.21595,18 Z M39.2526169,38.3652 L38.3688011,39.2490006 L33.001667,33.8818665 L27.6346149,39.2490006 L26.7507343,38.3652 L32.1178665,32.9980659 L26.7507343,27.6309338 L27.6346149,26.7471332 L33.001667,32.1142654 L38.3688011,26.7471332 L39.2526169,27.6309338 L33.8854675,32.9980659 L39.2526169,38.3652 L39.2526169,38.3652 Z" id="Shape" fill="#000000" opacity="0.3"></path>
+                    <path d="M38.21595,17 L25.7900009,17 L17,25.7839336 L17,38.2099991 L25.7900009,47 L38.21595,47 L47,38.2099991 L47,25.7839336 L38.21595,17 L38.21595,17 Z M38.2526169,37.3652 L37.3688011,38.2490006 L32.001667,32.8818665 L26.6346149,38.2490006 L25.7507343,37.3652 L31.1178665,31.9980659 L25.7507343,26.6309338 L26.6346149,25.7471332 L32.001667,31.1142673 L37.3688011,25.7471332 L38.2526169,26.6309338 L32.8854675,31.9980659 L38.2526169,37.3652 L38.2526169,37.3652 Z" id="Shape" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

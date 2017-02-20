@@ -18,7 +18,6 @@
     border-bottom: solid 2px #E91E63 !important;
 }
 
-
 .custom-select {
     background-color: #2196F3 !important;
     padding: 8px !important;
@@ -27,21 +26,30 @@
     font-weight: 800 !important;
 }
 
-.card-title{
+.card-title {
     font-weight: 700;
 }
-.see_file_extensions_icon{
+
+.see_file_extensions_icon {
     color: #2196F3 !important;
 }
 
-.save-settings{
+.save-settings {
     background-color: #2196F3 !important;
     font-weight: 700 !important;
     color: white;
 }
-.not-editable{
+
+.not-editable {
     pointer-events: none;
 }
 
+.email-body {
+    width: 100%;
+    border: solid 0px !important;
+    border-bottom: solid 2px #2196F3 !important;
+}
 
-
+.email-body:focus {
+    border-bottom: solid 2px #E91E63 !important;
+}

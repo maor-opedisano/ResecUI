@@ -1,10 +1,11 @@
-<div md-whiteframe="6" layout="column" class="iSMB animated fadeInUp countISMB ncInputSettings smb">
+<div md-whiteframe="6" layout="column" class="iSMB shadow-on-section-hover countISMB ncInputSettings smb">
     <div layout="row" layout-align="space-between center" class="notToBeFolded">
         <div layout="row" layout-align="start center" id="ncInputTitle">
             <md-icon md-svg-src="icons/ncInputTitleSettings.svg" class="md-36"></md-icon>
             <md-content>{{ISMB.Name}}</md-content>
         </div>
-        <md-button class="md-primary ncDeleteSMBS" ng-click="ctrl.deleteISMB(ISMB)" md-whiteframe="4">DELETE</md-button>
+        <md-button class="md-primary ncDeleteSMBS animated fadeIn" ng-click="ctrl.deleteISMB(ISMB)" ng-if="ctrl.EndpointSourcesAreEditable"
+            md-whiteframe="4">DELETE</md-button>
     </div>
     <div class="toBeFolded">
         <div layout="row" class="ncInputRow">
@@ -12,7 +13,7 @@
                 <md-content class="md-heading">Name</md-content>
             </div>
             <div flex layout="row" layout-align="space-between center" layout-padding>
-                <input placeholder="Pick a Name"  class="ncInputListInput" ng-model="ISMB.Name" />
+                <input placeholder="Pick a Name" class="ncInputListInput" ng-model="ISMB.Name" />
             </div>
         </div>
         <div layout="row" class="ncInputRow">
@@ -20,7 +21,7 @@
                 <md-content class="md-heading">Root Folder</md-content>
             </div>
             <div flex layout="row" layout-align="space-between center" layout-padding>
-                <input placeholder="root folder"  class="ncInputListInput" ng-model="ISMB.RootFolder" />
+                <input placeholder="root folder" class="ncInputListInput" ng-model="ISMB.RootFolder" />
             </div>
         </div>
         <div layout="row" layout-align="start center" class="ncInputRow">
@@ -28,10 +29,11 @@
                 <md-content class="md-heading">Speed Limit</md-content>
             </div>
             <div flex layout="row" layout-align="space-between center" layout-padding class="ncInputNoVP">
-                <input placeholder="Set Limit"  class="ncInputListInput" ng-model="ISMB.Speedlimit['Value']" type="number" />
+                <input placeholder="Set Limit" class="ncInputListInput" ng-model="ISMB.Speedlimit['Value']" type="number" min="0" />
             </div>
             <div flex="15" layout-align="center end" layout="row">
-                <select class="ncInputListSelect" ng-init="ISMB.Speedlimit['Unit'] || ctrl.DataUnits[1]" ng-model="ISMB.Speedlimit['Unit']" ng-options="unit for unit in ctrl.DataUnits"></select>
+                <select class="ncInputListSelect" ng-init="ISMB.Speedlimit['Unit'] || ctrl.DataUnits[1]" ng-model="ISMB.Speedlimit['Unit']"
+                    ng-options="unit for unit in ctrl.DataUnits"></select>
             </div>
         </div>
         <div layout="row" layout-align="start center" class="ncInputRow">
@@ -39,11 +41,11 @@
                 <md-content class="md-heading">User Quota</md-content>
             </div>
             <div flex layout="row" layout-align="space-between center" layout-padding class="ncInputNoVP">
-                <input placeholder="Set Quota" class="ncInputListInput" ng-model="ISMB.Userquota['Value']" type="number" />
-                
+                <input placeholder="Set Quota" class="ncInputListInput" ng-model="ISMB.Userquota['Value']" type="number" min="0" />
             </div>
             <div flex="15" layout-align="center end" layout="row">
-                <select class="ncInputListSelect" ng-init="ISMB.UserQuota['Unit'] || ctrl.DataUnits[1]" ng-model="ISMB.UserQuota['Unit']" ng-options="unit for unit in ctrl.DataUnits"></select>
+                <select class="ncInputListSelect" ng-init="ISMB.UserQuota['Unit'] || ctrl.DataUnits[1]" ng-model="ISMB.UserQuota['Unit']"
+                    ng-options="unit for unit in ctrl.DataUnits"></select>
             </div>
         </div>
         <div layout="row" layout-align="start center" class="ncInputRow">
@@ -51,7 +53,7 @@
                 <md-content class="md-heading">Number of Hours to keep the files</md-content>
             </div>
             <div flex layout="row" layout-align="space-between center" layout-padding class="ncInputNoVP">
-                <input placeholder="Set Number Of hours"  class="ncInputListInput" ng-model="ISMB.HoursToKeep" type="number" /> 
+                <input placeholder="Set Number Of hours" class="ncInputListInput" ng-model="ISMB.HoursToKeep" type="number" min="0" />
             </div>
         </div>
         <div layout="row" layout-align="start center" class="ncInputRow">
@@ -59,16 +61,18 @@
                 <md-content class="md-heading">New Folder Permissions</md-content>
             </div>
             <div flex layout="row" layout-align="center center" layout-padding class="ncInputNoVP">
-                <select class="ncInputListSelectFullWidth" ng-init="ISMB.FolderPermissions || ctrl.FolderPermissions[0]" ng-model="ISMB.FolderPermissions" ng-options="permission for permission in ctrl.FolderPermissions"></select>
+                <select class="ncInputListSelectFullWidth" ng-init="ISMB.FolderPermissions || ctrl.FolderPermissions[0]" ng-model="ISMB.FolderPermissions"
+                    ng-options="permission for permission in ctrl.FolderPermissions"></select>
             </div>
         </div>
         <div class="ncInputRow" layout="row" layout-align="start center" layout-padding>
             <div flex="40" class="ncBorderMe">
                 Use Relay
             </div>
-            <div flex>
+            <div flex="20">
                 <md-switch ng-model="ISMB.UseRelay" aria-label="use relay" class="customSwitch"></md-switch>
             </div>
+            <input ng-if="ISMB.UseRelay" flex placeholder="Pick a Relay" class="ncInputListInput" ng-model="ISMB.RelayName" />
         </div>
         <div class="ncInputRow" layout="row" layout-align="start center" layout-padding>
             <div flex="40">
@@ -90,10 +94,8 @@
             <div flex="40">
                 Allow Media Burn
             </div>
-            
-            <div flex  id="mediaBurn" layout="row" layout-align="space-around center">
+            <div flex id="mediaBurn" layout="row" layout-align="space-around center">
                 <input placeholder="Local Path for media Burn" class="ncInputListInput" ng-model="ISMB.AllowMediaBurn" />
-                
             </div>
         </div>
     </div>

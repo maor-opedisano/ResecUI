@@ -29,6 +29,21 @@ app.directive("oSmb", function () {
         replace: false
     }
 })
+app.directive("oFtp", function () {
+    return {
+        restrict: "E",
+        templateUrl: "app/channelManagement/templates/endpoint/innerView/sources/templates/ftp/oftp.template.html",
+        replace: false
+    }
+})
+
+app.directive("iFtp", function () {
+    return {
+        restrict: "E",
+        templateUrl: "app/channelManagement/templates/endpoint/innerView/sources/templates/ftp/iftp.template.html",
+        replace: false
+    }
+})
 
 app.directive("selectInput", function () {
     return {
@@ -61,6 +76,7 @@ app.directive("addIsmb", function () {
             element.click(function () {
                 var ismb = {};
                 scope.ctrl.ismbList.push(ismb)
+                scope.ctrl.NumberOFiSMBs++;
                 scope.$apply()
             })
         }
@@ -74,6 +90,7 @@ app.directive("addOsmb", function () {
             element.click(function () {
                 var osmb = {};
                 scope.ctrl.osmbList.push(osmb)
+                scope.ctrl.NumberOFoSMBs++;
                 scope.$apply()
             })
         }
@@ -105,10 +122,8 @@ app.directive("editInputsAndOutputs", function (channelData, $state, $mdDialog) 
         restrict: "A",
         link: function (scope, element, attrs) {
             element.click(function () {
-                var edition_section = $("#edition_section")
                 var self = $(this)
                 if (!scope.ctrl.EndpointSourcesAreEditable) {
-                    edition_section.removeClass("notEditable")
                     self.css("background-color", "red")
                     self.html("SAVE")
                     scope.ctrl.EndpointSourcesAreEditable = true
@@ -116,7 +131,6 @@ app.directive("editInputsAndOutputs", function (channelData, $state, $mdDialog) 
                     scope.ctrl.selectedOutputs = {}
                     scope.ctrl.selectedInputs = {}
                 } else {
-                    edition_section.addClass("notEditable")
                     self.css("background-color", "#311B92")
                         //recording selected inputs
                     var input_element = $(".input_element")
@@ -148,12 +162,14 @@ app.directive("editInputsAndOutputs", function (channelData, $state, $mdDialog) 
                             },
                             "outputConfiguration": {
                                 "SelectedIoList": scope.ctrl.selectedOutputs,
-                                "IoSmbConfiguration": scope.ctrl.osmbList
+                                "IoSmbConfiguration": scope.ctrl.osmbList,
+                                "NullStoreName": scope.ctrl.NullStoreName
+
                             }
                         }
                         //posting the data to the server
                     channelData.update_inputs_outputs(scope.ctrl.rootId, scope.ctrl.IoConfiguration).then(function (success) {
-                      
+
                         scope.ctrl.HTTP_Dialogs.ShowSuccessDialog()
                         scope.ctrl.UpdateChannelData(success.data.Id)
                     }, function (error) {

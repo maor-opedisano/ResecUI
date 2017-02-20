@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="app/channelManagement/templates/endpoint/innerNav/style.css" />
 <nav class="container-fluid" id="CMEndpointInnerNav">
-    <ul class="nav nav-justified md-whiteframe-z3" id="CMEndPointInnerNavUL">
+    <ul class="nav nav-justified"  md-whiteframe="4" id="CMEndPointInnerNavUL">
         <li><a ui-sref="app.channelManagement.endpoint.dashboard" ui-sref-active="SelectedTab"><strong>Dashboard </strong></a></li>
-        <li><a ui-sref="app.channelManagement.endpoint.sources" ui-sref-active="SelectedTab"><strong>Inputs &amp; Outputs</strong></a></li>
+        <li ng-if="!ctrl.TemplateConditions.isAPI"><a ui-sref="app.channelManagement.endpoint.sources" ui-sref-active="SelectedTab"><strong>Inputs &amp; Outputs</strong></a></li>
         <li><a ui-sref="app.channelManagement.endpoint.settings" ui-sref-active="SelectedTab"><strong>Settings</strong></a></li>
         <li><a ui-sref="app.channelManagement.endpoint.who" ui-sref-active="SelectedTab"><strong>Who Uses This Channel </strong></a></li>
     </ul>

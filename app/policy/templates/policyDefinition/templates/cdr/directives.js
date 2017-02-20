@@ -3,11 +3,7 @@ app.directive("toggleCdrEdition", function (policyData, $mdDialog) {
     return {
         restrict: "A",
         scope: {
-            bindedValue: "=",
-            value: "=value",
-            policyId: "=policyId",
-            key: "=",
-            global: "=global"
+            bindedValue: "="
         },
         link: function (scope, element, attrs) {
             element.bind("click", function () {
@@ -24,6 +20,27 @@ app.directive("toggleCdrEdition", function (policyData, $mdDialog) {
                     });
                     icon.html("edit");
                 }
+            })
+        }
+    }
+})
+
+app.directive("toggleRegexEdition", () => {
+    return {
+        restrict: "A",
+        link: (scope, element, attrs) => {
+            element.click(() => {
+                scope.ctrl.CDRHyperLinkEditable = (!scope.ctrl.CDRHyperLinkEditable) ? true : false;
+            })
+        }
+    }
+})
+app.directive("toggleCdrFailActionsEdition", () => {
+    return {
+        restrict: "A",
+        link: (scope, element, attrs) => {
+            element.click( () => {
+                scope.ctrl.CDRFailActionsEditable = (!scope.ctrl.CDRFailActionsEditable) ? true : false;
             })
         }
     }

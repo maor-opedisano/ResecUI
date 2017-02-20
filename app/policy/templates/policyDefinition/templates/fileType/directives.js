@@ -32,24 +32,13 @@ app.directive("tableIsDisabledModal", function () {
     }
 })
 
-app.directive("toggleChildrenStates", function () {
+
+app.directive("filterFiletypes", () => {
     return {
         restrict: "A",
-        scope: {
-            childrenAccessPoint: "=",
-            selfReference: "="
-        },
-        require: "^?ngModel",
-        link: function (scope, element, attrs) {
-            element.bind("click", function () {
-                angular.forEach(scope.childrenAccessPoint, function (value, key) {
-                    if (scope.selfReference) {
-                        value.AllowOption = false
-                    } else {
-                        value.AllowOption = true
-                    }
-                })
-            })
+        require: "ngKeyUp",
+        link: (scope, element, attrs) => {
+            console.log(ngKeyUp)
         }
     }
 })

@@ -1,35 +1,42 @@
-.selectedChip{
+.selectedChip {
     background-color: #62D0C9;
     color: white;
     font-weight: 600;
 }
-.notEditable{
-    pointer-events: none;
 
+.notEditable {
+    pointer-events: none;
 }
-.strong600{
+
+.strong600 {
     font-weight: 600;
 }
-.inEdition{
+
+.inEdition {
     background-color: #d50000 !important;
 }
-#editWhoSection{
+
+#editWhoSection {
     margin-left: 0px;
     margin-bottom: 1.5em;
     margin-top: 1.5em;
 }
-.channels-chips-add-button{
+
+.channels-chips-add-button {
     padding-top: 0px !important;
     margin-left: 0px !important;
     margin-right: 0px !important;
 }
-.no-padding-top{
+
+.no-padding-top {
     padding-top: 0px !important;
 }
-#available-channels{
+
+#available-channels {
     padding-left: 1em;
 }
-#edit-who-screen{
+
+#edit-who-screen {
     background-color: #2196F3 !important;
     font-weight: 700 !important;
     color: white !important;
@@ -38,68 +45,99 @@
     margin-bottom: 1em !important;
     margin-right: 0px !important;
 }
-#edit-who-screen:hover{
-    background-color:#E91E63 !important;
+
+#edit-who-screen:hover {
+    background-color: #E91E63 !important;
 }
-.inEdition{
-    background-color:#E91E63 !important;
+
+.inEdition {
+    background-color: #E91E63 !important;
 }
-.removeButton{
+
+.removeButton {
     color: #E91E63 !important;
 }
 
-   .custom-chips {
-        background-color: #2196F3;
-        color: white;
-        padding-left: 15px;
-        padding-right: 6px;
-        border-radius: 50px;
-        font-weight: 700;
-    }
-    
-    .no-padding-no-margin {
-        padding: 0px !important;
-        margin: 0px !important;
-    }
-    
-    .repeated-item {
-        border-bottom: solid 1px #E0E0E0;
-    }
-    
-    .title {
-        background-color: #2196F3;
-        color: white;
-        text-align: center;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
-    
-    .card {
-        background-color: white;
-        border-radius: 4px;
-    }
-    
-    #current-policy {
-        padding-bottom: 1em;
-        padding-top: 1em;
-    }
-    
-    md-virtual-repeat-container {
-        min-height: 100%;
-    }
-    
-    .search-box {
-        border: solid 0px !important;
-        width: 100% !important;
-        border-bottom: solid 2px #2196F3 !important;
-    }
-    
-    .search-box:focus {
-        border-bottom: solid 2px #F06292 !important;
-    }
-    
-    #all {
-        border-left: solid 2px #2196F3;
-        padding-left: 1em;
-    }
-    
+.custom-chips {
+    background-color: #2196F3;
+    color: white;
+    padding-left: 15px;
+    padding-right: 6px;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.no-padding-no-margin {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.repeated-item {
+    border-bottom: solid 1px #E0E0E0;
+}
+
+.title {
+    background-color: #2196F3;
+    color: white;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.card {
+    background-color: white;
+    border-radius: 4px;
+}
+
+#current-policy {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+md-virtual-repeat-container {
+    height: 292px;
+}
+
+.search-box {
+    border: solid 0px !important;
+    width: 100% !important;
+    border-bottom: solid 2px #2196F3 !important;
+}
+
+.search-box:focus {
+    border-bottom: solid 2px #F06292 !important;
+}
+
+#all {
+    border-left: solid 2px #2196F3;
+    padding-left: 1em;
+}
+.blue-btn{
+    background-color: #2196F3 !important;
+    border-radius: 3px !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+.blue-btn:hover{
+    background-color: #E91E63 !important;
+}
+.ip-field:focus{
+    border-bottom: solid 2px #F06292 !important; 
+}
+.ip-field{
+    border: 0px !important;
+    border-bottom: solid 2px #2196F3 !important;
+    margin-left: 1em !important;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}

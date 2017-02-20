@@ -42,26 +42,52 @@
 [ng-drop].drag-enter {
     border: solid 3px #2196F3;
 }
-.rename-icon{
+
+.rename-icon {
     color: #2196F3 !important;
 }
-.edit-name{
+
+.edit-name {
     border-bottom: solid 2px #E040FB !important;
     padding-bottom: 2px !important;
 }
-.icon-edit-name-active{
+
+.icon-edit-name-active {
     color: #FF4081 !important;
 }
+
+.channelSidenavItems {
+    background-color: #38359C;
+    color: white;
+    border-radius: 3px;
+}
+
 .channelSidenavItems:hover {
-    background-color: #38359C;
-    color: white;
-    border-left: solid 0.5em #706BE2;
+    border-left: solid 4px #00C851;
+        background-color: #4285F4;
+
 }
+
 .sidenavItemHoverState {
-    background-color: #38359C;
-    color: white;
-    border-left: solid 0.5em #706BE2;
+    background-color: #4285F4;
+    border-left: solid 4px #00C851;
 }
-.white-icon{
+
+.white-icon {
     color: white !important;
+}
+
+.red-icon {
+    color: #FF4081 !important;
+}
+
+.channel-name-in-edtion {
+    border-bottom: solid 2px #FF4081;
+}
+.search-field{
+    border: solid 0px !important;
+    border-bottom: solid 2px #4285F4 !important;
+}
+.search-field:focus{
+    border-bottom: solid 2px #FF4081 !important;
 }

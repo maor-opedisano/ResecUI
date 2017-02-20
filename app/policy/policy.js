@@ -1,6 +1,6 @@
 app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "$state", "$http", "$mdDialog", "$timeout", '$q', "FacetFormatter",
 
-    function($scope, $mdSidenav, policyData, channelData, $state, $http, $mdDialog, $timeout, $q, FacetFormatter) {
+    function ($scope, $mdSidenav, policyData, channelData, $state, $http, $mdDialog, $timeout, $q, FacetFormatter) {
 
         var self = this;
         self.sidenav_edit_mode = false;
@@ -12,16 +12,16 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
         self.types = {};
         self.areSettingsEditable = false;
         self.allFacets = {};
-        self.isChecked = function(ftypes) {
-            console.log(ftypes);
+        self.PolicyIsInCreation = false;
+        self.isChecked = function (ftypes) {
             return true;
         }
-        self.FiletypeInitConditions = function() {
+        self.FiletypeInitConditions = function () {
             self.isAdvancedModeOn = false;
             self.isTableEditable = false;
         };
         self.ComputingUnits = ["Kb", "Mb", "Gb", "Tb"];
-        self.show_success_dialog = function(message) {
+        self.show_success_dialog = function (message) {
             $mdDialog.show(
                 $mdDialog.alert()
                 .clickOutsideToClose(true)
@@ -31,7 +31,7 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
                 .ok('Got it!')
             );
         };
-        self.show_error_dialog = function(message, errorMessage) {
+        self.show_error_dialog = function (message, errorMessage) {
             var str = message + " : " + errorMessage
             $mdDialog.show(
                 $mdDialog.alert()
@@ -42,8 +42,8 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
                 .ok('Got it!')
             );
         };
-        self.RefreshSidenav = function() {
-            policyData.getSidenav().then(function(answer) {
+        self.RefreshSidenav = function () {
+            policyData.getSidenav().then(function (answer) {
                 self.sideNavList = answer.data
                 if (self.sideNavList.length > 0) {
                     self.NoPolicyExists = false;
@@ -57,77 +57,118 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
         }
         self.RefreshSidenav();
 
-        //delete cdr
+        self.DeleteAction = function (key, L0Key) {
+                self.PolicyFacets['Policy CDR Settings'].Values[L0Key][key] = false;
+            }
+            //__________________________Filetypes children check __________________________
+        self.CheckAllExtensions = (ModelState, Parent, Property) => {
+            for (var i = 0, len = Parent.length; i < len; i++) {
+                if (Parent[i][Property] !== null) {
+                    Parent[i][Property] = (!ModelState) ? false : true;
+                }
+            }
+        };
+        self.ChildrenState = (ModelState, Parent, Property) => {
+            var TrueElements = [];
+            for (var i = 0, len = Parent.length; i < len; i++) {
+                if (Parent[i][Property] == true) {
+                    TrueElements.push("1");
+                }
+            }
+            ModelState = (TrueElements.length === Parent.length) ? true : false;
+            return ModelState;
+        };
+        self.IsIndeterminate = (Parent, Property) => {
+            var ModelState = false;
+            var ar = [];
+            var x = Parent.every(x => {
+                if (x[Property] !== null) {
+                    ar.push("2")
+                }
+                return ar;
+            })
 
-        self.DeleteAction = function(key, L0Key) {
-            //set false
-            self.PolicyFacets['Policy CDR Settings'].Values[L0Key][key] = false;
+            var TrueElements = [];
+            var ParentLen = ar.length;
+            for (var i = 0, len = Parent.length; i < len; i++) {
+                if (Parent[i][Property] == true) {
+                    TrueElements.push("1");
+                }
+            }
+            var len = TrueElements.length;
+            ModelState = (len < ParentLen && len > 0) ? true : false;
+            return ModelState;
+        };
+        self.DisplayGlobalCheckbox = (Parent, Property) => {
+            var testArr = [];
+            var willDisplay;
+            for (var i = 0, len = Parent.length; i < len; i++) {
+                if (Parent[i][Property] !== null){
+                    testArr.push(Parent[i]);
+                };
+            };
 
-            //delete self.PolicyFacets['Policy CDR Settings'].Values[L0Key][key]
-        }
-
+            willDisplay = (testArr.length > 0) ? true : false;
+           
+            return willDisplay;
+        };
         //________________________Get policy and format it's facets ___________________________
 
-        self.getPolicyInfo = function(id) {
+        self.getPolicyInfo = (id) => {
+
+                //LoadFacetTemplate: Boolean;
                 var deferred = $q.defer();
-                self.PolicyFacets = {}; //(jQuery.isEmptyObject(self.policy.PolicyFacets)) ? PolicyFacetsIfNull : self.policy.PolicyFacets;
+                self.PolicyFacets = {};
                 self.ServerFacetTemplates = {};
                 self.ParsedPolicyFacets = {};
                 self.FacetTemplatesContainer = {};
-                policyData.get_policy_info(id).then(function(answer) {
+                //   if (LoadFacetTemplate) {
+                policyData.get_policy_info(id).then(function (answer) {
 
                     self.Filetypes = answer.data.PolicyInfo.FileTypesActionsSettings;
                     // checking child state for "AllowOption" Property
-                    angular.forEach(self.Filetypes, function(value, key) {
+                    angular.forEach(self.Filetypes, function (value, key) {
                         if (value.AllowOption == false) {
                             key.ChildrenAreNotAllAllowed = true;
                         } else {
                             key.ChildrenAreNotAllAllowed = false;
                         }
                     });
-
                     self.policy = answer.data;
-
                     //init PolicyFacets
                     self.PolicyFacets = (jQuery.isEmptyObject(self.policy.PolicyFacets)) ? {} : self.policy.PolicyFacets;
 
                     //__________________________________________file detection settings__________________________________________//
 
                     var q1 = policyData.get_policy_settings("PolicyFileDetectionSettings");
-                    /*.then(function(answer) {
-                                            var data = answer.data;
-                                            self.DetectionFacets = data;
 
-                                        });
-                    */
+                    self.OpenEmailTemplate = () => {
+                        $mdDialog.show({
+                                controller: "EmailNotificationTemplateController",
+                                templateUrl: 'app/policy/templates/policyDefinition/templates/settings/email.template.html',
+                                parent: angular.element(document.body),
+                                clickOutsideToClose: true,
+                            })
+                            .then((answer) => {
+                                $scope.status = 'You said the information was "' + answer + '".';
+                            }, () => {
+                                $scope.status = 'You cancelled the dialog.';
+                            });
+                    }
 
                     /*______________________________________settings______________________________________*/
                     var q2 = policyData.get_policy_settings("PolicySettings");
-                    /*.then(function(answer) {
-                        var data = answer.data;
-                        self.allFacets = data;
-                        //  self.InitFacets(self.allFacets, self.PolicyFacets);
 
-                    });
-*/
                     //______________________________________retrieving CDR Facets__________________________________________//
 
                     var q3 = policyData.getCDRFacets();
-                    /*.then(function(answer) {
 
-                        self.cdrContainer = {};
-
-                        self.cdr = answer.data;
-                        // self.InitFacets(self.cdr, self.PolicyFacets);
-
-
-                    })*/
                     $q.all({
                         q1,
                         q2,
                         q3
                     }).then(data => {
-                        console.log('Both promises have resolved', data);
+                        self.RawData = data;
                         var detectionFacets = data.q1.data;
                         var allFacets = data.q2.data;
                         var cdr = data.q3.data;
@@ -138,29 +179,25 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
                         self.cdr = self.FormatFacetTemplates(cdr);
                         Object.assign(self.FacetTemplatesContainer, self.DetectionFacets, self.allFacets, self.cdr)
                         var FacetVm = self.InitFacets(self.FacetTemplatesContainer, self.PolicyFacets);
-
                         deferred.resolve(FacetVm);
                     });
                     return deferred.promise;
-                }).then(function(answer) {
-                    console.log("FacetVm");
-                    console.log(answer);
+                }).then(function (answer) {
+
                     self.PolicyFacets = answer.EntityFacets;
-
-
                 })
+
             }
             //watching for change//
-        $scope.$watch(angular.bind(this, function() {
+        $scope.$watch(angular.bind(this, () => {
             return this.policyId;
-        }), function(newVal) {
+        }), function (newVal) {
             self.getPolicyInfo(newVal);
         });
 
-        //______________________________________Formatting Facets to display in DOM______________
 
         //______________________________________Formatting Facets to display in DOM______________
-        self.FormatFacetTemplates = function(RetrievedData) {
+        self.FormatFacetTemplates = (RetrievedData) => {
 
             return FacetFormatter.FormatFacetTemplates(RetrievedData);
 
@@ -168,65 +205,72 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
 
         //RetrievedData= FacetsTemplates from server after parsing and formatting them
         //EntityFacets= all entity(policy or channel) facets contains Raw data
-        self.InitFacets = function(newRetrievedData, EntityFacets) {
+        self.InitFacets = (newRetrievedData, EntityFacets) => {
             return FacetFormatter.InitFacets(newRetrievedData, EntityFacets);
         };
         // ______________________________________   confirm policy creation   __________________________
 
-        self.CreatePolicy = function() {
-                policyData.create_new_policy(self.PolicyInfo)
-                    .then(function(success) {
-                            $mdDialog.cancel();
-                            $state.go('app.policy.definition.fileType', {
-                                PolicyID: success.data.Id
-                            }, {
-                                reload: true
-
-                            });
-                        },
-                        function(error) {
-                            alert("there was an error : " + error.data.Message);
-                        })
+        self.CreatePolicy = () => {
+                self.PolicyIsInCreation = true;
+                policyData.create_new_policy(self.PolicyInfo).then((success) => {
+                        $mdDialog.cancel();
+                        $state.go('app.policy.definition.fileType', {
+                            PolicyID: success.data.Id
+                        }, {
+                            reload: true
+                        });
+                    },
+                    (error) => {
+                        alert("there was an error : " + error.data.Message);
+                    })
             }
             // ______________________________________   format to post facets   ________________________
 
-        self.FormatForPOST = function() {
+        self.FormatForPOST = () => {
 
 
             var Facets2POST = FacetFormatter.FormatForPOST(self, "PolicyFacets", "ServerFacetTemplates");
-            var confirmPost = confirm("Post To Server?");
-            if (confirmPost) {
 
 
-                policyData.post_policy_settings(self.policyId, Facets2POST).then(function(success) {
-                    self.show_success_dialog("Your changes were successfuly saved")
-                    self.getPolicyInfo(self.policyId)
-                }, function(error) {
-                    self.show_error_dialog("An error occured while saving your changes : ", error.data.Message)
-                })
-            } else {
-                console.log('bypassed post operation of object:')
-                console.log(Facets2POST)
-            }
+            policyData.post_policy_settings(self.policyId, Facets2POST).then((success) => {
+                self.show_success_dialog("Your changes were successfuly saved")
+                var deferred = $q.defer();
+                var $cdr = policyData.getCDRFacets();
+                $q.all({
+                    $cdr
+                }).then(data => {
+                    self.cdr = self.FormatFacetTemplates(data.$cdr.data);
+                    Object.assign(self.FacetTemplatesContainer, self.DetectionFacets, self.allFacets, self.cdr)
+                    var FacetVm = self.InitFacets(self.FacetTemplatesContainer, self.PolicyFacets);
+                    deferred.resolve(FacetVm);
+                });
+                return deferred.promise;
+            }).then((answer) => {
+
+                self.PolicyFacets = answer.EntityFacets;
+
+
+            }, (error) => {
+                self.show_error_dialog("An error occured while saving your changes : ", error.data.Message)
+            })
+
 
         }
 
         //save cdr settings__________________________________________
-        self.SaveFacetsInCDR = function(DOMValue) {
+        self.SaveFacetsInCDR = (DOMValue) => {
                 if (!DOMValue) {
                     self.FormatForPOST();
-                } else {
-                    console.log("childrens are visible");
-                    console.log(DOMValue);
                 }
             }
             // ______________________________________   End Of formatting to post    __________________________
             // ______________________________________   Special filter    __________________________
-        self.myFilter = function(item) {
-            console.log('my filter');
-            console.log(item);
+        self.myFilter = (item) => {
+
             return true;
         };
+
+
     }
 
 ])
@@ -237,23 +281,8 @@ app.controller('policy', ["$scope", "$mdSidenav", "policyData", "channelData", "
 
 
 
-app.filter('filterObject', function() {
-    return function(input, search) {
-        if (!input) return input;
-        if (!search) return input;
-        var expected = ('' + search).toLowerCase();
-        var result = {};
-        angular.forEach(input, function(value, key) {
-            var actual = ('' + value).toLowerCase();
-            if (actual.indexOf(expected) !== -1) {
-                result[key] = value;
-            }
-        });
-        return result;
-    }
-});
-app.filter("splitter", function() {
-    return function(string, char, index) {
+app.filter("splitter", function () {
+    return function (string, char, index) {
         if (string == undefined || string === "" || string == null) {
             return;
         }
@@ -262,10 +291,16 @@ app.filter("splitter", function() {
         string = splitted.split(/(?=[A-Z])/).join(" ");
         return string;
     }
-})
-app.filter('split', function() {
-    return function(input, splitChar, splitIndex) {
+});
+app.filter('split', function () {
+    return function (input, splitChar, splitIndex) {
         // do some bounds checking here to ensure it has that index
         return input.split(splitChar)[splitIndex];
     }
 });
+
+app.filter("GetValueFromIndex", function () {
+    return (index) => {
+        return 1;
+    }
+})
